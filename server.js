@@ -2,7 +2,6 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const morgan = require('morgan');
 const passport = require('passport');
 
 const { router: usersRouter } = require('./users');
@@ -15,8 +14,6 @@ const { PORT, DATABASE_URL } = require('./config');
 const app = express();
 
 app.use(express.static('public'));
-
-app.use(morgan('common'));
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -52,7 +49,7 @@ function runServer() {
       }
       server = app
         .listen(PORT, () => {
-          console.log(`Your app is listening on port ${PORT}`);
+          // console.log(`Your app is listening on port ${PORT}`);
           resolve();
         })
         .on('error', err => {
