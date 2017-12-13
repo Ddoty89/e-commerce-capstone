@@ -44,8 +44,9 @@ function loginUser() {
     		'Content-Type': 'application/json'
   		},
   		success: function(response) {
-  			const {authToken} = response
-  			localStorage.setItem('token', authToken)
+  			const {authToken} = response;
+  			localStorage.setItem('username', username);
+  			localStorage.setItem('token', authToken);
   		}
   	})	
   })
@@ -72,6 +73,7 @@ function accessProtectedEndpoint() {
 
 function logout() {
 	$('#logout').on('submit', function() {
+		localStorage.removeItem('username');
 		localStorage.removeItem('token');
 	})
 }
