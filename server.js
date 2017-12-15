@@ -10,7 +10,7 @@ const { router: productsRouter } = require('./products');
 
 mongoose.Promise = global.Promise;
 
-const { PORT, DATABASE_URL } = require('./config');
+const { PORT, DATABASE_URL } = require('./config'); 
 
 const app = express();
 

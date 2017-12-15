@@ -22,7 +22,7 @@ UserSchema.methods.serialize = function() {
   return {
     username: this.username || '',
     firstName: this.firstName || '',
-    lastName: this.lastName || ''
+    lastName: this.lastName || '' 
   };
 };
 
@@ -70,6 +70,6 @@ UserSchema.statics.hashPassword = function(password) {
 };
 
 const User = mongoose.model('User', UserSchema);
-const UsedProduct = mongoose('UsedProduct', UsedProductSchema);
+const UsedProduct = mongoose.model('UsedProduct', UsedProductSchema);
 
 module.exports = {User, UsedProduct};
