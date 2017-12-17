@@ -10,6 +10,7 @@ const jsonParser = bodyParser.json();
 
 router.post('/used', jsonParser, (req, res) => {
   let {username, item} = req.body;
+  console.log(req.body)
 
   return UsedProduct.find({username})
     .then(() => {

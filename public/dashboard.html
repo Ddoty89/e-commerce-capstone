@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Browse our selection of tech items new and used</title>
+	<link href='main.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
 
@@ -59,12 +60,17 @@
 	<main role='main'>
 		<form class='uploadProduct'>
 		<p class='productUser'><span class='user'>username</span> is the current user</p>
-		<input id='lastName' type='text' name='lastName' placeholder="Last name"/>
-		<input id='regName' type='text' name='userName' placeholder="username" required/>
-		<input id='regPassword' type='password' name='password' placeholder="password" required/>
-		<button>Register</button>
+		<input id='itemName' type='text' name='itemName' placeholder="Item Name"/>
+		<input id='productType' type='text' name='productType' placeholder="Product Category"/>
+		<input id='productValue' type='text' name='productValue' placeholder="Price"/>
+		<input id='condition' type='text' name='condition' placeholder="Condition"/>
+		<input id='description type='text' name='description' placeholder="description"/>
+		<button>Post</button>
+
 	</form>
 	</main>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src='app.js'></script>
 </body>
 </html>

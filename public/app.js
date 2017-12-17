@@ -1,5 +1,5 @@
 function registerUser() {
-	$('.register').on('submit', function(event) {
+	$('.register').on('submit', () => {
 		event.preventDefault();
 		let firstName = $('#firstName').val();
 		let lastName = $('#lastName').val();
@@ -26,7 +26,7 @@ function registerUser() {
 };
 
 function loginUser() {
-	$('.login').on('submit', function(event) {
+	$('.login').on('submit', () => {
 		event.preventDefault();
 		let username = $('#loginUser').val();
 		let password = $('#loginPassword').val();
@@ -51,7 +51,7 @@ function loginUser() {
 };
 
 function accessProtectedEndpoint() {
-	$('.protected').on('submit', function(event) {
+	$('.protected').on('submit', () => {
 		event.preventDefault();
 		const authToken = localStorage.getItem('token');
 		$.ajax({
@@ -69,10 +69,45 @@ function accessProtectedEndpoint() {
 };
 
 function logout() {
-	$('.logout').on('submit', function() {
+	$('.logout').on('submit', () => {
 		localStorage.removeItem('username');
 		localStorage.removeItem('token');
 	})
+}
+
+function postingItem() {
+	const username = localStorage.getItem('username');
+	$('.user').text(username);
+	$('.uploadProduct').on('submit', () => {
+		event.preventDefault();
+		const itemName = $('#itemName').val();
+    const productType = $('#productType').val();
+    const productValue = $('#productValue').val();
+    const condition = $('#condition').val();
+    const description = $('#description').val();
+		const product = {
+		username,
+		item: [{
+	    itemName,
+  	  productType,
+    	productValue,
+  	  condition,
+    	description
+    	}]
+  	}
+		$.ajax({
+			url:'http://localhost:8080/api/products/used', 
+			type: 'POST',
+			data:JSON.stringify(product),
+			headers: {
+    		'Content-Type': 'application/json'
+  		},
+  		success: function(item) {
+  			console.log(item);
+  		}
+  	})	
+	})
+
 }
 
 $(function () {
@@ -80,4 +115,5 @@ $(function () {
 	loginUser();
 	accessProtectedEndpoint();
 	logout();
+	postingItem();
 });

@@ -33,7 +33,7 @@ const UsedProductSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  item:[{
+  item: [{
     itemName: {
       type: String, 
       default: ''
@@ -43,7 +43,7 @@ const UsedProductSchema = mongoose.Schema({
       default: ''
     },
     productValue: {
-      type: Number, 
+      type: String, 
       default: ''
     },
     condition: {
