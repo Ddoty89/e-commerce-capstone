@@ -1,20 +1,19 @@
-const state = {
-	currentUser: ''
-};
-
 function registerUser() {
-	$('#register').on('submit', function(event) {
+	$('.register').on('submit', function(event) {
 		event.preventDefault();
+		let firstName = $('#firstName').val();
+		let lastName = $('#lastName').val();
 		let username = $('#regName').val();
 		let password = $('#regPassword').val();
 		const credentials = {
 			username,
-			password
+			password,
+			firstName,
+			lastName
 		}
 		$.ajax({
 			url:'http://localhost:8080/api/users', 
 			type: 'POST',
-			dataType: 'json',
 			data:JSON.stringify(credentials),
 			headers: {
     		'Content-Type': 'application/json'
@@ -27,7 +26,7 @@ function registerUser() {
 };
 
 function loginUser() {
-	$('#login').on('submit', function(event) {
+	$('.login').on('submit', function(event) {
 		event.preventDefault();
 		let username = $('#loginUser').val();
 		let password = $('#loginPassword').val();
@@ -38,7 +37,6 @@ function loginUser() {
 		$.ajax({
 			url:'http://localhost:8080/api/auth/login', 
 			type: 'POST',
-			dataType: 'json',
 			data:JSON.stringify(credentials),
 			headers: {
     		'Content-Type': 'application/json'
@@ -53,13 +51,12 @@ function loginUser() {
 };
 
 function accessProtectedEndpoint() {
-	$('#protected').on('submit', function(event) {
+	$('.protected').on('submit', function(event) {
 		event.preventDefault();
 		const authToken = localStorage.getItem('token');
 		$.ajax({
 			url:'http://localhost:8080/api/protected', 
 			type: 'GET',
-			dataType: 'json',
 			headers: {
     		'Content-Type': 'application/json',
     		Authorization: `Bearer ${authToken}`
@@ -72,7 +69,7 @@ function accessProtectedEndpoint() {
 };
 
 function logout() {
-	$('#logout').on('submit', function() {
+	$('.logout').on('submit', function() {
 		localStorage.removeItem('username');
 		localStorage.removeItem('token');
 	})

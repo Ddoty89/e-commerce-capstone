@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const UserSchema = mongoose.Schema({
-  username: {
+  username: { 
     type: String,
     required: true,
     unique: true
@@ -32,31 +32,34 @@ const UsedProductSchema = mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    item:[{
-      itemName: {
-        type: String
-      },
-      productType: {
-        type: String
-      },
-      productValue: {
-        type: Number
-      },
-      condition: {
-        type: String
-      },
-      description: {
-        type: String
-      }
-    }]
-  }
+  },
+  item:[{
+    itemName: {
+      type: String, 
+      default: ''
+    },
+    productType: {
+      type: String, 
+      default: ''
+    },
+    productValue: {
+      type: Number, 
+      default: ''
+    },
+    condition: {
+      type: String, 
+      default: ''
+    },
+    description: {
+      type: String, 
+      default: ''
+    }
+  }]
 });
 
 UsedProductSchema.methods.serialize = function() {
   return {
     username: this.username || '',
-    firstName: this.firstName || '',
-    lastName: this.lastName || '',
     item: this.item || ''
   };
 };
