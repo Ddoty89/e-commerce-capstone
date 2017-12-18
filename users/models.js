@@ -33,34 +33,31 @@ const UsedProductSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  item: [{
-    itemName: {
-      type: String, 
-      default: ''
-    },
-    productType: {
-      type: String, 
-      default: ''
-    },
-    productValue: {
-      type: String, 
-      default: ''
-    },
-    condition: {
-      type: String, 
-      default: ''
-    },
-    description: {
-      type: String, 
-      default: ''
-    }
-  }]
+  itemName: {
+    type: String, 
+    default: ''
+  },
+  productType: {
+    type: String, 
+    default: ''
+  },
+  productValue: {
+    type: String, 
+    default: ''
+  },
+  condition: {
+    type: String, 
+    default: ''
+  }
 });
 
 UsedProductSchema.methods.serialize = function() {
   return {
     username: this.username || '',
-    item: this.item || ''
+    itemName: this.itemName || '',
+    productType: this.productType || '',
+    productValue: this.productValue || '',
+    condition: this.condition || ''
   };
 };
 

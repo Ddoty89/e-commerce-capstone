@@ -84,16 +84,12 @@ function postingItem() {
     const productType = $('#productType').val();
     const productValue = $('#productValue').val();
     const condition = $('#condition').val();
-    const description = $('#description').val();
 		const product = {
-		username,
-		item: [{
-	    itemName,
-  	  productType,
-    	productValue,
-  	  condition,
-    	description
-    	}]
+			username,
+  	  itemName,
+		  productType,
+  		productValue,
+		  condition
   	}
 		$.ajax({
 			url:'http://localhost:8080/api/products/used', 

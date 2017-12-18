@@ -9,32 +9,26 @@ const router = express.Router();
 const jsonParser = bodyParser.json();
 
 router.post('/used', jsonParser, (req, res) => {
-  let {username, item} = req.body;
-  console.log(req.body)
-
-  return UsedProduct.find({username})
-    .then(() => {
-      return UsedProduct.create({
-        username,
-        item:[{
-        	itemName,
-			    productType,
-			    productValue,
-			    condition,
-			    description
-        }]
-      });
-    })
-    .then(item => {
-      console.log(item)
-      return res.status(201).json(user.serialize());
-    })
-    .catch(err => {
-      if (err.reason === 'ValidationError') {
-        return res.status(err.code).json(err);
-      }
-      res.status(500).json({code: 500, message: 'Internal server error'});
-    });
+  let {username, itemName, productType, productValue, condition} = req.body;
+  console.log(req.body);
+  console.log(username);
+  console.log(itemName);
+  return UsedProduct.create({
+    username,
+  	itemName,
+		productType,
+		productValue,
+ 	 	condition
+  })
+  .then(() => {
+    return res.status(201).json(user.serialize());
+  })
+  .catch(err => {
+    if (err.reason === 'ValidationError') {
+      return res.status(err.code).json(err);
+    }
+    res.status(500).json({code: 500, message: 'Internal server error'});
+  });
 });
 
 router.get('/', (req, res) => {
