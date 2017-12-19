@@ -1,8 +1,8 @@
-'use strict';
+'use strict'; 
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const {UsedProduct} = require('../users');
+const {UsedProduct} = require('./models');
 
 const router = express.Router();
 
@@ -10,9 +10,6 @@ const jsonParser = bodyParser.json();
 
 router.post('/used', jsonParser, (req, res) => {
   let {username, itemName, productType, productValue, condition} = req.body;
-  console.log(req.body);
-  console.log(username);
-  console.log(itemName);
   return UsedProduct.create({
     username,
   	itemName,
@@ -20,8 +17,8 @@ router.post('/used', jsonParser, (req, res) => {
 		productValue,
  	 	condition
   })
-  .then(() => {
-    return res.status(201).json(user.serialize());
+  .then((usedproduct) => {
+    return res.status(201).json(usedproduct.serialize());
   })
   .catch(err => {
     if (err.reason === 'ValidationError') {

@@ -18,7 +18,7 @@ function registerUser() {
 			headers: {
     		'Content-Type': 'application/json'
   		},
-  		success: function(user) {
+  		success: function(user) { 
   			console.log(user);
   		}
   	})	
@@ -98,12 +98,14 @@ function postingItem() {
 			headers: {
     		'Content-Type': 'application/json'
   		},
-  		success: function(item) {
-  			console.log(item);
-  		}
+  		success: function(response) {
+  			console.log(response);
+  		},
+  		error: function(err) {
+     		console.log(err)
+     	}
   	})	
 	})
-
 }
 
 $(function () {

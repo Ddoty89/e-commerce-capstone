@@ -27,40 +27,6 @@ UserSchema.methods.serialize = function() {
 };
 
 
-const UsedProductSchema = mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  itemName: {
-    type: String, 
-    default: ''
-  },
-  productType: {
-    type: String, 
-    default: ''
-  },
-  productValue: {
-    type: String, 
-    default: ''
-  },
-  condition: {
-    type: String, 
-    default: ''
-  }
-});
-
-UsedProductSchema.methods.serialize = function() {
-  return {
-    username: this.username || '',
-    itemName: this.itemName || '',
-    productType: this.productType || '',
-    productValue: this.productValue || '',
-    condition: this.condition || ''
-  };
-};
-
 UserSchema.methods.validatePassword = function(password) {
   return bcrypt.compare(password, this.password);
 };
@@ -70,6 +36,5 @@ UserSchema.statics.hashPassword = function(password) {
 };
 
 const User = mongoose.model('User', UserSchema);
-const UsedProduct = mongoose.model('UsedProduct', UsedProductSchema);
 
-module.exports = {User, UsedProduct};
+module.exports = {User};
