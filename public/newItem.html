@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checkout the assortment of new tech related items</title>
+	<link href='main.css' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+
+	<form class='newItemInput'>
+		<input id='newImage' type='url' name='newImage' placeholder='Image URL' required/>
+		<input id='newName' type='text' name='newName' placeholder='Name' required/>
+		<input id='newType' type='text' name='newType' placeholder='Category' required/>
+		<input id='newPrice' type='text' name='newPrice' placeholder='Price' required/>
+		<input id='newURL' type='url' name='newURL' placeholder='URL' required/>
+		<button>Upload</button>
+	</form>
+
+	<div>
+		<ul>
+			<li class='addNewItem'>
+				<img class='productImage' src='https://cdn.spacetelescope.org/archives/images/wallpaper2/heic1509a.jpg'/>
+				<p class='productName'>Hubbel Space Telescope of Nebula</p>
+				<p class='productType'>Nebula</p>
+				<p class='productPrice'><a href='https://www.spacetelescope.org/images/archive/top100/' target='blank'>99999999999999</a></p>
+			</li>
+		</ul>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src='app.js'></script>
+</body>
+</html>

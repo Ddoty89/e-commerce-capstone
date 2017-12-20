@@ -75,7 +75,7 @@ function logout() {
 	})
 }
 
-function postingItem() {
+function postUsedItem() {
 	const username = localStorage.getItem('username');
 	$('.user').text(username);
 	$('.uploadProduct').on('submit', () => {
@@ -100,9 +100,35 @@ function postingItem() {
   		},
   		success: function(response) {
   			console.log(response);
+     	}
+  	})	
+	})
+}
+
+function postNewItem() {
+	$('.newItemInput').on('submit', () => {
+		event.preventDefault();
+		const newImage = $('#newImage').val();
+		const newName = $('#newName').val();
+    const newType = $('#newType').val();
+    const newPrice = $('#newPrice').val();
+    const newURL = $('#newURL').val();
+		const newProduct = {
+			newImage,
+  	  newName,
+		  newType,
+			newPrice,
+  		newURL
+  	}
+		$.ajax({
+			url:'http://localhost:8080/api/products/new', 
+			type: 'POST',
+			data:JSON.stringify(newProduct),
+			headers: {
+    		'Content-Type': 'application/json'
   		},
-  		error: function(err) {
-     		console.log(err)
+  		success: function(response) {
+  			$(addNewItem)
      	}
   	})	
 	})
@@ -113,5 +139,6 @@ $(function () {
 	loginUser();
 	accessProtectedEndpoint();
 	logout();
-	postingItem();
+	postUsedItem();
+	postNewItem();
 });

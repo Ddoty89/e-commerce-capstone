@@ -1,0 +1,10 @@
+.addNewItem {
+	border: 1px solid black;
+	height: 500px;
+	width: 300px;
+}
+
+img {
+	max-width: 200px;
+	max-height: 300px;
+}
