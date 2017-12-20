@@ -128,7 +128,7 @@ function postNewItem() {
     		'Content-Type': 'application/json'
   		},
   		success: function(response) {
-  			$(addNewItem)
+  			$('.addNewItem').append()
      	}
   	})	
 	})
