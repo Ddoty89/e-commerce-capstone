@@ -1,5 +1,6 @@
 'use strict';
 const mongoose = require('mongoose');
+require('mongoose-type-url');
 
 mongoose.Promise = global.Promise;
 
@@ -37,6 +38,40 @@ UsedProductSchema.methods.serialize = function() {
   };
 };
 
-const UsedProduct = mongoose.model('UsedProduct', UsedProductSchema);
+const NewProductSchema = mongoose.Schema({
+  newImage: {
+    work: mongoose.SchemaTypes.Url,
+    profile: mongoose.SchemaTypes.Url
+  },
+  newName: {
+    type: String, 
+    required: true
+  },
+  newType: {
+    type: String, 
+    required: true
+  },
+  newPrice: {
+    type: String, 
+    required: true
+  },
+  newURL: {
+    work: mongoose.SchemaTypes.Url,
+    profile: mongoose.SchemaTypes.Url
+  }
+});
 
-module.exports = {UsedProduct};
+NewProductSchema.methods.serialize = function() {
+  return {
+    newImage: this.newImage || '',
+    newName: this.newName || '',
+    newType: this.newType || '',
+    newPrice: this.newPrice || '',
+    newURL: this.newURL || ''
+  };
+};
+
+const UsedProduct = mongoose.model('UsedProduct', UsedProductSchema);
+const NewProduct = mongoose.model('NewProduct', NewProductSchema);
+
+module.exports = {UsedProduct, NewProduct};
