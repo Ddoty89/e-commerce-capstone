@@ -7,8 +7,7 @@ mongoose.Promise = global.Promise;
 const UsedProductSchema = mongoose.Schema({
   username: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   itemName: {
     type: String, 

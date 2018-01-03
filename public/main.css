@@ -11,6 +11,14 @@
 	/*padding-top: 50px;*/
 }
 
+.addUsedItem > li {
+	border: 1px solid black;
+	height: 400px;
+	width: 200px;
+	display: inline-block;
+	/*padding-top: 50px;*/
+}
+
 img {
 	max-width: 200px;
 	max-height: 290px;

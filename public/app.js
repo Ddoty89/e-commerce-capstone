@@ -79,6 +79,72 @@ function logout() {
 	})
 }
 
+function postNewItem() {
+	$('.newItemInput').on('submit', () => {
+		event.preventDefault();
+		const newImage = $('#newImage').val();
+		const newName = $('#newName').val();
+    const newType = $('#newType').val();
+    const newPrice = $('#newPrice').val();
+    const newURL = $('#newURL').val();
+		const newProduct = {
+			newImage,
+  	  newName,
+		  newType,
+			newPrice,
+  		newURL
+  	}
+		$.ajax({
+			url:'http://localhost:8080/api/products/new', 
+			type: 'POST',
+			data:JSON.stringify(newProduct),
+			headers: {
+    		'Content-Type': 'application/json'
+  		},
+  		success: function(response) {
+  			console.log(response);
+			}
+  	})	
+	})
+}
+
+function navToNewItemPage() {
+	$('.newItemPage').on('submit', () => {
+		event.preventDefault();
+	})
+}
+
+function getNewProductApiData(callback) {
+	$.ajax({
+		url:'http://localhost:8080/api/products/new',
+		type:'GET',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		success: function(response) {
+			getNewProductData(response);
+		}
+	})
+}
+
+function getNewProductData(data) {
+	const result = data.newproducts.map(item => renderNewProductResults(item));
+	$('.addNewItem').append(result);
+}
+
+function renderNewProductResults(results) {
+	return(
+		`<li>
+	    <img class='productImage' src='${results.newImage}'/>
+      <p class='productName'>${results.newName}</p>
+      <p class='productType'>${results.newType}</p>
+      <p class='productPrice'>${results.newPrice}</p>
+      <button class='linkToPurchase'><a href='${results.newURL}' target='blank'>Purchase Item</a></button>
+      <button class='saveItem'>Save</button>
+    </li>`
+  )
+}
+
 function postUsedItem() {
 	const username = localStorage.getItem('username');
 	$('.user').text(username);
@@ -109,68 +175,38 @@ function postUsedItem() {
 	})
 }
 
-function postNewItem() {
-	$('.newItemInput').on('submit', () => {
-		event.preventDefault();
-		const newImage = $('#newImage').val();
-		const newName = $('#newName').val();
-    const newType = $('#newType').val();
-    const newPrice = $('#newPrice').val();
-    const newURL = $('#newURL').val();
-		const newProduct = {
-			newImage,
-  	  newName,
-		  newType,
-			newPrice,
-  		newURL
-  	}
-		$.ajax({
-			url:'http://localhost:8080/api/products/new', 
-			type: 'POST',
-			data:JSON.stringify(newProduct),
-			headers: {
-    		'Content-Type': 'application/json'
-  		},
-  		success: function(response) {
-  			console.log(response);
-			}
-  	})	
-	})
-}
-
-function newItemPage() {
-	$('.newItemPage').on('submit', () => {
+function navToUsedItemPage() {
+	$('.usedItemPage').on('submit', () => {
 		event.preventDefault();
 	})
 }
 
-function getApiData(callback) {
+function getUsedProductApiData(callback) {
 	$.ajax({
-		url:'http://localhost:8080/api/products/new',
+		url:'http://localhost:8080/api/products/used',
 		type:'GET',
 		headers: {
 			'Content-Type': 'application/json'
 		},
 		success: function(response) {
-			getSearchData(response);
+			getUsedProductData(response);
 		}
 	})
 }
 
-
-function getData(data) {
-	const result = data.newproducts.map(item => renderResults(item));
-	$('.addNewItem').html(result);
+function getUsedProductData(data) {
+	const result = data.usedproduct.map(item => renderUsedProductResults(item));
+	$('.addUsedItem').append(result);
 }
 
-function renderResults(results) {
+function renderUsedProductResults(results) {
 	return(
 		`<li>
-	    <img class='productImage' src='${results.newImage}'/>
-      <p class='productName'>${results.newName}</p>
-      <p class='productType'>${results.newType}</p>
-      <p class='productPrice'>${results.newPrice}</p>
-      <button class='linkToPurchase'><a href='${results.newURL}' target='blank'>Purchase Item</a></button>
+	    <p class='usedProductUsername'>${results.username}</p>
+      <p class='usedProductName'>${results.itemName}</p>
+      <p class='usedProductType'>${results.productType}</p>
+      <p class='usedProductValue'>${results.productValue}</p>
+			<p class='usedProductCondition'>${results.condition}</p>
       <button class='saveItem'>Save</button>
     </li>`
   )
@@ -183,6 +219,8 @@ $(function () {
 	logout();
 	postUsedItem();
 	postNewItem();
-	newItemPage();
-	getData();
+	navToNewItemPage();
+	getNewProductApiData();
+	navToUsedItemPage();
+	getUsedProductApiData();
 });

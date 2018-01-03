@@ -28,9 +28,13 @@ router.post('/used', jsonParser, (req, res) => {
   });
 });
 
-router.get('/', (req, res) => {
-  return UsedProduct.find()
-    .then(usedproduct => res.json(usedproduct.map(usedproduct => usedproduct.serialize())))
+router.get('/used', (req, res) => {
+  UsedProduct
+  .find()
+  .then(usedproduct => res.json({
+    usedproduct: usedproduct.map(
+      usedproduct => usedproduct.serialize())
+  }))
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
@@ -60,8 +64,7 @@ router.get('/new', (req, res) => {
   .find()
   .then(newproducts => res.json({
     newproducts: newproducts.map(
-      (newproduct) => newproduct.serialize()
-    )
+      (newproduct) => newproduct.serialize())
   }))
   .catch(err => {
     console.error(err)
@@ -69,4 +72,5 @@ router.get('/new', (req, res) => {
   });
 });
    
+
 module.exports = {router};
