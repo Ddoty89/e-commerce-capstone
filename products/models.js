@@ -40,8 +40,8 @@ UsedProductSchema.methods.serialize = function() {
 
 const NewProductSchema = mongoose.Schema({
   newImage: {
-    work: mongoose.SchemaTypes.Url,
-    profile: mongoose.SchemaTypes.Url
+    type: String,
+    required: true
   },
   newName: {
     type: String, 
@@ -56,8 +56,8 @@ const NewProductSchema = mongoose.Schema({
     required: true
   },
   newURL: {
-    work: mongoose.SchemaTypes.Url,
-    profile: mongoose.SchemaTypes.Url
+    type: String,
+    required: true
   }
 });
 

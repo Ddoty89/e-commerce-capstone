@@ -55,10 +55,18 @@ router.post('/new', jsonParser, (req, res) => {
   });
 });
 
-router.get('/', (req, res) => {
-  return NewProduct.find()
-    .then(newproduct => res.json(newproduct.map(newproduct => newproduct.serialize())))
-    .catch(err => res.status(500).json({message: 'Internal server error'}));
+router.get('/new', (req, res) => {
+  NewProduct
+  .find()
+  .then(newproducts => res.json({
+    newproducts: newproducts.map(
+      (newproduct) => newproduct.serialize()
+    )
+  }))
+  .catch(err => {
+    console.error(err)
+    res.status(500).json({message: 'Something went wrong'})
+  });
 });
-
+   
 module.exports = {router};

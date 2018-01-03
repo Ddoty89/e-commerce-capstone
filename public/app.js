@@ -1,3 +1,7 @@
+const state = {
+	apiData: ''
+}
+
 function registerUser() {
 	$('.register').on('submit', () => {
 		event.preventDefault();
@@ -128,10 +132,48 @@ function postNewItem() {
     		'Content-Type': 'application/json'
   		},
   		success: function(response) {
-  			$('.addNewItem').append()
-     	}
+  			console.log(response);
+			}
   	})	
 	})
+}
+
+function newItemPage() {
+	$('.newItemPage').on('submit', () => {
+		event.preventDefault();
+	})
+}
+
+function getApiData(callback) {
+	$.ajax({
+		url:'http://localhost:8080/api/products/new',
+		type:'GET',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		success: function(response) {
+			getSearchData(response);
+		}
+	})
+}
+
+
+function getData(data) {
+	const result = data.newproducts.map(item => renderResults(item));
+	$('.addNewItem').html(result);
+}
+
+function renderResults(results) {
+	return(
+		`<li>
+	    <img class='productImage' src='${results.newImage}'/>
+      <p class='productName'>${results.newName}</p>
+      <p class='productType'>${results.newType}</p>
+      <p class='productPrice'>${results.newPrice}</p>
+      <button class='linkToPurchase'><a href='${results.newURL}' target='blank'>Purchase Item</a></button>
+      <button class='saveItem'>Save</button>
+    </li>`
+  )
 }
 
 $(function () {
@@ -141,4 +183,6 @@ $(function () {
 	logout();
 	postUsedItem();
 	postNewItem();
+	newItemPage();
+	getData();
 });

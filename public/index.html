@@ -12,14 +12,14 @@
 	<form class='register'>
 		<input id='firstName' type='text' name='firstName' placeholder="First Name"/>
 		<input id='lastName' type='text' name='lastName' placeholder="Last name"/>
-		<input id='regName' type='text' name='userName' placeholder="username" required/>
-		<input id='regPassword' type='password' name='password' placeholder="password" required/>
+		<input id='regName' type='text' name='userName' placeholder="username" autocomplete="username" required/>
+		<input id='regPassword' type='password' name='password' placeholder="password" autocomplete="new-password" required/>
 		<button>Register</button>
 	</form>
 
 	<form class='login'>
-		<input id='loginUser' type='text' name='userName' placeholder="username" required/>
-		<input id='loginPassword' type='password' name='password' placeholder="password" required/>
+		<input id='loginUser' type='text' name='userName' placeholder="username" autocomplete="username" required/>
+		<input id='loginPassword' type='password' name='password' placeholder="password" autocomplete="current-password" required/>
 		<button>Login</button>
 	</form>
 	
