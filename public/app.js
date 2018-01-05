@@ -1,5 +1,6 @@
 const state = {
-	apiData: ''
+	productType: '',
+	condition: ''
 }
 
 function registerUser() {
@@ -151,15 +152,18 @@ function postUsedItem() {
 	$('.uploadProduct').on('submit', () => {
 		event.preventDefault();
 		const itemName = $('#itemName').val();
-    const productType = $('#productType').val();
     const productValue = $('#productValue').val();
-    const condition = $('#condition').val();
+    const description = $('#description').val();
+    const productType = state.productType;
+    const condition = state.condition;
+    console.log(condition)
 		const product = {
 			username,
   	  itemName,
-		  productType,
+			productType,
   		productValue,
-		  condition
+		  condition,
+		  description
   	}
 		$.ajax({
 			url:'http://localhost:8080/api/products/used', 
@@ -173,6 +177,18 @@ function postUsedItem() {
      	}
   	})	
 	})
+}
+
+function dropDownProductType() {
+$('.productTypeMenu').change(function() {
+  	state.productType = $('.productTypeMenu option:selected').val();
+  })
+}
+
+function dropDownCondition() {
+$('.conditionMenu').change(function() {
+  	state.condition = $('.conditionMenu option:selected').val();
+  })
 }
 
 function navToUsedItemPage() {
@@ -190,6 +206,7 @@ function getUsedProductApiData(callback) {
 		},
 		success: function(response) {
 			getUsedProductData(response);
+			// userAccountData(response)
 		}
 	})
 }
@@ -199,6 +216,22 @@ function getUsedProductData(data) {
 	$('.addUsedItem').append(result);
 }
 
+// function userAccountData(data) {
+// 	const username = localStorage.getItem('username');
+// 	let result = {};
+
+
+// 	for(let i = 0; i < data.usedproduct.length; i++){
+// 		// console.log(data.usedproduct[i])
+// 		if(data.usedproduct[i].username === username) {
+// 			result += data.usedproduct[i];
+// 			console.log(data.usedproduct[i])
+// 			console.log(result)
+// 		}
+// 	}
+// 	$('.userUsedItem').append(renderUsedProductResults(result));
+// }
+
 function renderUsedProductResults(results) {
 	return(
 		`<li>
@@ -207,7 +240,9 @@ function renderUsedProductResults(results) {
       <p class='usedProductType'>${results.productType}</p>
       <p class='usedProductValue'>${results.productValue}</p>
 			<p class='usedProductCondition'>${results.condition}</p>
+			<p class='usedProductDescription'>${results.description}</p>
       <button class='saveItem'>Save</button>
+      <button class='contactUser'>Contact User</button>
     </li>`
   )
 }
@@ -218,6 +253,8 @@ $(function () {
 	accessProtectedEndpoint();
 	logout();
 	postUsedItem();
+	dropDownProductType();
+	dropDownCondition();
 	postNewItem();
 	navToNewItemPage();
 	getNewProductApiData();

@@ -6,6 +6,17 @@
 </head>
 <body>
 
+	<header> 
+		<nav class='navBar'>
+			<ul>
+				<li><a href='index.html'>Home</a></li>
+				<li class='newItemPage'><a href='newItem.html'>New Products</a></li>
+				<li class='usedItemPage'><a href='usedItem.html'>Used Products</a></li>
+				<li class='userAccount'><a href='userAccount.html'>User Account</a></li>
+			</ul>
+		</nav>
+	</header>
+
 
 	<div class='sideFilter'>
 		<div class='itemTypeSelector'>
@@ -33,8 +44,8 @@
 			<label for='oneHundred-twoHundred'>100-200</label>
 			<input id='fifty-oneHundred' type='checkbox' name='select'/>
 			<label for='fifty-oneHundred'>50-100</label>
-			<input id='fifty-' type='checkbox' name='select'/>
-			<label for='fifty-'>50 or less</label>
+			<input id='fifty-orLess' type='checkbox' name='select'/>
+			<label for='fifty-orLess'>50 or less</label>
 		</div>
 		<div class='new/used'>
 			<input id='new' type='checkbox' name='select'/>
@@ -47,16 +58,6 @@
 	</div>
 
 	<main role='main'>
-		<form class='uploadProduct'>
-		<p class='productUser'><span class='user'>username</span> is the current user</p>
-		<input id='itemName' type='text' name='itemName' placeholder="Item Name"/>
-		<input id='productType' type='text' name='productType' placeholder="Product Category"/>
-		<input id='productValue' type='text' name='productValue' placeholder="Price"/>
-		<input id='condition' type='text' name='condition' placeholder="Condition"/>
-		<button>Post</button>
-
-	</form>
-	</main>
 
 	<div>
 		<ul class='addUsedItem'>
@@ -64,6 +65,7 @@
 		</ul>
 	</div>
 
+</main>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src='app.js'></script>
 </body>

@@ -9,13 +9,14 @@ const router = express.Router();
 const jsonParser = bodyParser.json();
 
 router.post('/used', jsonParser, (req, res) => {
-  let {username, itemName, productType, productValue, condition} = req.body;
+  let {username, itemName, productType, productValue, condition, description} = req.body;
   return UsedProduct.create({
     username,
   	itemName,
 		productType,
 		productValue,
- 	 	condition
+ 	 	condition,
+    description
   })
   .then((usedproduct) => {
     return res.status(201).json(usedproduct.serialize());
