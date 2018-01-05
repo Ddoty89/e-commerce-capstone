@@ -13,9 +13,10 @@ function registerUser() {
 		const credentials = {
 			username,
 			password,
-			firstName,
+			firstName, 
 			lastName
 		}
+		console.log(credentials)
 		$.ajax({
 			url:'http://localhost:8080/api/users', 
 			type: 'POST',
@@ -35,6 +36,7 @@ function loginUser() {
 		event.preventDefault();
 		let username = $('#loginUser').val();
 		let password = $('#loginPassword').val();
+		$('.user').text(username);
 		const credentials = {
 			username,
 			password
@@ -148,7 +150,6 @@ function renderNewProductResults(results) {
 
 function postUsedItem() {
 	const username = localStorage.getItem('username');
-	$('.user').text(username);
 	$('.uploadProduct').on('submit', () => {
 		event.preventDefault();
 		const itemName = $('#itemName').val();
@@ -156,7 +157,6 @@ function postUsedItem() {
     const description = $('#description').val();
     const productType = state.productType;
     const condition = state.condition;
-    console.log(condition)
 		const product = {
 			username,
   	  itemName,
