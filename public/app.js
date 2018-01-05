@@ -8,15 +8,16 @@ function registerUser() {
 		event.preventDefault();
 		let firstName = $('#firstName').val();
 		let lastName = $('#lastName').val();
+		let email = $('#userEmail').val();
 		let username = $('#regName').val();
 		let password = $('#regPassword').val();
 		const credentials = {
 			username,
 			password,
+			email,
 			firstName, 
 			lastName
 		}
-		console.log(credentials)
 		$.ajax({
 			url:'http://localhost:8080/api/users', 
 			type: 'POST',
@@ -25,6 +26,11 @@ function registerUser() {
     		'Content-Type': 'application/json'
   		},
   		success: function(user) { 
+				$('#firstName').val("");
+				$('#lastName').val("");
+				$('#userEmail').val("");
+				$('#regName').val("");
+				$('#regPassword').val("");
   			console.log(user);
   		}
   	})	
@@ -52,6 +58,8 @@ function loginUser() {
   			const {authToken} = response;
   			localStorage.setItem('username', username);
   			localStorage.setItem('token', authToken);
+  			$('#loginUser').val("");
+				$('#loginPassword').val("");
   		}
   	})	
   })
@@ -136,20 +144,19 @@ function getNewProductData(data) {
 }
 
 function renderNewProductResults(results) {
-	return(
-		`<li>
+	return(`<li>
 	    <img class='productImage' src='${results.newImage}'/>
       <p class='productName'>${results.newName}</p>
       <p class='productType'>${results.newType}</p>
       <p class='productPrice'>${results.newPrice}</p>
       <button class='linkToPurchase'><a href='${results.newURL}' target='blank'>Purchase Item</a></button>
       <button class='saveItem'>Save</button>
-    </li>`
-  )
+    </li>`)
 }
 
 function postUsedItem() {
 	const username = localStorage.getItem('username');
+	$('.user').text(username);
 	$('.uploadProduct').on('submit', () => {
 		event.preventDefault();
 		const itemName = $('#itemName').val();
@@ -206,7 +213,7 @@ function getUsedProductApiData(callback) {
 		},
 		success: function(response) {
 			getUsedProductData(response);
-			// userAccountData(response)
+			userAccountData(response)
 		}
 	})
 }
@@ -216,21 +223,14 @@ function getUsedProductData(data) {
 	$('.addUsedItem').append(result);
 }
 
-// function userAccountData(data) {
-// 	const username = localStorage.getItem('username');
-// 	let result = {};
-
-
-// 	for(let i = 0; i < data.usedproduct.length; i++){
-// 		// console.log(data.usedproduct[i])
-// 		if(data.usedproduct[i].username === username) {
-// 			result += data.usedproduct[i];
-// 			console.log(data.usedproduct[i])
-// 			console.log(result)
-// 		}
-// 	}
-// 	$('.userUsedItem').append(renderUsedProductResults(result));
-// }
+function userAccountData(data) {
+	const username = localStorage.getItem('username');
+	for(let i = 0; i < data.usedproduct.length; i++){
+		if(data.usedproduct[i].username === username) {
+			$('.userUsedItem').append(renderUsedProductResults(data.usedproduct[i]));
+		}
+	}
+}
 
 function renderUsedProductResults(results) {
 	return(

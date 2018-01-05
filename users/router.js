@@ -9,9 +9,10 @@ const router = express.Router();
 const jsonParser = bodyParser.json();
 
 router.post('/', jsonParser, (req, res) => {
-  let {username, password, firstName = '', lastName = ''} = req.body;
+  let {username, password, email, firstName, lastName} = req.body;
   firstName = firstName.trim();
   lastName = lastName.trim();
+  email = email.trim();
 
   return User.find({username})
     .count()
@@ -30,6 +31,7 @@ router.post('/', jsonParser, (req, res) => {
       return User.create({
         username,
         password: hash,
+        email,
         firstName,
         lastName
       });
@@ -42,7 +44,7 @@ router.post('/', jsonParser, (req, res) => {
       if (err.reason === 'ValidationError') {
         return res.status(err.code).json(err);
       }
-      res.status(500).json({code: 500, message: 'Internal server error'});
+      res.status(500).json({code: 500, message: 'Internal server errors'});
     });
 });
 
