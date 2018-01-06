@@ -9,14 +9,16 @@ const router = express.Router();
 const jsonParser = bodyParser.json();
 
 router.post('/used', jsonParser, (req, res) => {
-  let {username, itemName, productType, productValue, condition, description} = req.body;
+  let {username, itemName, productType, productValue, condition, description, image} = req.body;
+  description = description.trim();
   return UsedProduct.create({
     username,
   	itemName,
 		productType,
 		productValue,
  	 	condition,
-    description
+    description,
+    image
   })
   .then((usedproduct) => {
     return res.status(201).json(usedproduct.serialize());
@@ -25,7 +27,7 @@ router.post('/used', jsonParser, (req, res) => {
     if (err.reason === 'ValidationError') {
       return res.status(err.code).json(err);
     }
-    res.status(500).json({code: 500, message: 'Internal server error'});
+    res.status(500).json({code: 500, message: err});
   });
 });
 
@@ -36,7 +38,7 @@ router.get('/used', (req, res) => {
     usedproduct: usedproduct.map(
       usedproduct => usedproduct.serialize())
   }))
-    .catch(err => res.status(500).json({message: 'Internal server error'}));
+    .catch(err => res.status(500).json({message: err}));
 });
 
 
@@ -56,7 +58,7 @@ router.post('/new', jsonParser, (req, res) => {
     if (err.reason === 'ValidationError') {
       return res.status(err.code).json(err);
     }
-    res.status(500).json({code: 500, message: 'Internal server error'});
+    res.status(500).json({code: 500, message: err});
   });
 });
 
@@ -69,7 +71,7 @@ router.get('/new', (req, res) => {
   }))
   .catch(err => {
     console.error(err)
-    res.status(500).json({message: 'Something went wrong'})
+    res.status(500).json({message: err})
   });
 });
    

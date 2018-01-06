@@ -13,6 +13,7 @@ router.post('/', jsonParser, (req, res) => {
   firstName = firstName.trim();
   lastName = lastName.trim();
   email = email.trim();
+  console.log(username, password, email, firstName, lastName)
 
   return User.find({username})
     .count()
@@ -44,7 +45,7 @@ router.post('/', jsonParser, (req, res) => {
       if (err.reason === 'ValidationError') {
         return res.status(err.code).json(err);
       }
-      res.status(500).json({code: 500, message: 'Internal server errors'});
+      res.status(500).json({code: 500, message: err});
     });
 });
 

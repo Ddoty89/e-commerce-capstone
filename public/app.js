@@ -1,6 +1,7 @@
 const state = {
 	productType: '',
-	condition: ''
+	condition: '',
+	currentImageValue: ''
 }
 
 function registerUser() {
@@ -164,13 +165,15 @@ function postUsedItem() {
     const description = $('#description').val();
     const productType = state.productType;
     const condition = state.condition;
+    const image = state.currentImageValue;
 		const product = {
 			username,
   	  itemName,
 			productType,
   		productValue,
 		  condition,
-		  description
+		  description,
+		  image
   	}
 		$.ajax({
 			url:'http://localhost:8080/api/products/used', 
@@ -180,22 +183,33 @@ function postUsedItem() {
     		'Content-Type': 'application/json'
   		},
   		success: function(response) {
-  			console.log(response);
+				$('#itemName').val("");
+				$('#productValue').val("");
+				$('#description').val("");
+		    $('.productTypeMenu').val("");
+		    $('.conditionMenu').val("");
      	}
   	})	
 	})
 }
 
 function dropDownProductType() {
-$('.productTypeMenu').change(function() {
+	$('.productTypeMenu').change(function() {
   	state.productType = $('.productTypeMenu option:selected').val();
   })
 }
 
 function dropDownCondition() {
-$('.conditionMenu').change(function() {
+	$('.conditionMenu').change(function() {
   	state.condition = $('.conditionMenu option:selected').val();
   })
+}
+
+
+function getUsedItemImage() {
+	$('.usedImg').click(function() {
+		state.currentImageValue = $(this).attr("src");
+	})
 }
 
 function navToUsedItemPage() {
@@ -235,6 +249,7 @@ function userAccountData(data) {
 function renderUsedProductResults(results) {
 	return(
 		`<li>
+			<img class='usedImg' src='${results.image}'/>
 	    <p class='usedProductUsername'>${results.username}</p>
       <p class='usedProductName'>${results.itemName}</p>
       <p class='usedProductType'>${results.productType}</p>
@@ -255,6 +270,7 @@ $(function () {
 	postUsedItem();
 	dropDownProductType();
 	dropDownCondition();
+	getUsedItemImage();
 	postNewItem();
 	navToNewItemPage();
 	getNewProductApiData();
