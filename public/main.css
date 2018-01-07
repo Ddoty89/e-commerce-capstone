@@ -1,7 +1,10 @@
 * {
   box-sizing: border-box;
-  max-width: 1000px;
   margin: 0;
+}
+
+main {
+max-width: 1000px;
 }
 
 .addNewItem > li {
@@ -25,16 +28,25 @@ img {
 	max-height: 290px;
 }
 
+
 a {
 	display: block;
 	text-decoration: none;
+	color:;
+}
+
+a {
+    color:black ;
+}
+
+a:visited {
+    color:black ;
 }
 
 .header {
 	width: 100%;
 	background-color: tan;
 	padding: 15px 0px;
-	margin-bottom: 50px;
 }
 
 .nav {
@@ -42,6 +54,22 @@ a {
 	display: inline-block;
 	margin-right: 20px;
 	color: black;
+}
+
+.navBar,
+.logout {
+	display:inline-block;
+}
+
+.navList,
+.loginRegister {
+	display: inline-block;
+}
+
+.loginRegister,
+.logout {
+	float: right;
+	margin-right:15px;
 }
 
 label > input{
@@ -59,30 +87,87 @@ label > input:checked + img{
 }
 
 .usedImg {
-	width:110px;
+	width:135px;
 	height:100px;
 }
 
 .picContainer,
 .usedProductInfo1,
 .usedProductInfo2 {
+	/*border:1px solid black;*/
 	width:420px;
 	margin: auto;
 }
 
-.post {
-	border: 1px solid black;
-	margin: auto;
-}
-
 .postButton {
-	width:80px;
-	margin: auto;
+	width: 70px;
+	margin:auto;
+	display:block;
 }
 
-/*.imageOptions {
-	width:500px;
-	height:400px;
-}*/
+#loginUser,
+#loginPassword,
+.loginButton {
+	display: block;
+	margin:auto;
+	margin-top:25px;
+}
 
+#loginUser {
+	margin-top:40px;
+}
 
+.loginContainer {
+	width:200px;
+	height:225px;
+	border-radius:5px;
+	border:1px solid tan;
+	background-color:tan;
+	margin:auto;
+}
+
+.registerContainer {
+	width:200px;
+	height:290px;
+	border-radius:5px;
+	border:1px solid tan;
+	background-color:tan;
+	margin:auto;
+}
+
+#firstName, 
+#lastName,
+#userEmail,
+#regName,
+#regPassword,
+.registerButton {
+	display: block;
+	margin:auto;
+	margin-top:25px;
+}
+
+.sideFilter {
+	height:100%;
+	position:fixed;
+	background-color:#5aebad;
+	width:175px;
+}
+
+section {
+	display:block;
+}
+
+.itemTypeSelector,
+.priceSelector,
+.conditionSelector {
+	padding: 15px 5px;
+}
+
+.initiatefilters {
+	margin: 15px 5px;
+	border-radius: 3px
+}
+
+.hidden {
+	display:none;
+}

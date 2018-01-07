@@ -8,29 +8,80 @@
 
 	<header class='header'> 
 		<nav class='navBar'>
+
 			<ul class='navList'>
 				<li class='nav home'><a href='index.html'>Home</a></li>
 				<li class='nav newItemPage'><a href='newItem.html'>New Products</a></li>
-				<li class='nav usedItemPage'><a href='usedItem.html'>Used Products</a></li>
+				<li class='nav usedItemPage'><a href='usedItem.html'>Used Products</a></li> 
 				<li class='nav userAccount'><a href='userAccount.html'>User Account</a></li>
 			</ul>
+
+			<ul class='loginRegister'>
+				<li class='nav loginPage'><a href='login.html'>Login</a></li>
+				<li class='nav registerPage'><a href='register.html'>Register</a></li>
+				<li class='nav currentUser hidden'></li>
+			</ul>
+
 		</nav>
 	</header>
 
-	<form class='newItemInput'>
+	<!-- <form class='newItemInput'>
 		<input id='newImage' type='url' name='newImage' placeholder='Image URL' required/>
 		<input id='newName' type='text' name='newName' placeholder='Name' required/>
 		<input id='newType' type='text' name='newType' placeholder='Category' required/>
 		<input id='newPrice' type='text' name='newPrice' placeholder='Price' required/>
 		<input id='newURL' type='url' name='newURL' placeholder='URL' required/>
 		<button>Upload</button>
-	</form>
+	</form> -->
+
+<div class='sideFilter'>
+		<div class='itemTypeSelector'>
+			<input id='tvs' type='checkbox' name='select'/>
+			<label for='tvs'>Tv's</label>
+			<input id='phones' type='checkbox' name='select'/>
+			<label for='phones'>Phones</label>
+			<input id='headPhones' type='checkbox' name='select'/>
+			<label for='headPhones'>Head Phones</label>
+			<input id='speakers' type='checkbox' name='select'/>
+			<label for='speakers'>Speakers</label>
+			<input id='computers' type='checkbox' name='select'/>
+			<label for='computers'>Computers</label>
+			<input id='drones' type='checkbox' name='select'/>
+			<label for='drones'>Drones</label>
+		</div>
+		<div class='priceSelector'>
+			<input id='fiftenHundred+' type='checkbox' name='select'/>
+			<label for='fiftenHundred+'>1500+</label>
+			<input id='fiveHundred-fifteenHundred' type='checkbox' name='select'/>
+			<label for='fiveHundred-fifteenHundred'>500-1500</label>
+			<input id='twoHundred-fiveHundred' type='checkbox' name='select'/>
+			<label for='twoHundred-fiveHundred'>200-500</label>
+			<input id='oneHundred-twoHundred' type='checkbox' name='select'/>
+			<label for='oneHundred-twoHundred'>100-200</label>
+			<input id='fifty-oneHundred' type='checkbox' name='select'/>
+			<label for='fifty-oneHundred'>50-100</label>
+			<input id='fifty-orLess' type='checkbox' name='select'/>
+			<label for='fifty-orLess'>50 or less</label>
+		</div>
+		<div class='new/used'>
+			<input id='new' type='checkbox' name='select'/>
+			<label for='new'>New</label>
+			<input id='used' type='checkbox' name='select'/>
+			<label for='used'>Used</label>
+		</div>
+
+		<button class='initiatefilters'>Search</button>
+	</div>
+
+	<main role='main'>
 
 	<div>
 		<ul class='addNewItem'>
 			
 		</ul>
 	</div>
+
+</main>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src='app.js'></script>

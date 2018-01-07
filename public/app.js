@@ -32,7 +32,6 @@ function registerUser() {
 				$('#userEmail').val("");
 				$('#regName').val("");
 				$('#regPassword').val("");
-  			console.log(user);
   		}
   	})	
   })
@@ -43,7 +42,7 @@ function loginUser() {
 		event.preventDefault();
 		let username = $('#loginUser').val();
 		let password = $('#loginPassword').val();
-		$('.user').text(username);
+		$('.currentUser').text(username);
 		const credentials = {
 			username,
 			password
@@ -61,7 +60,13 @@ function loginUser() {
   			localStorage.setItem('token', authToken);
   			$('#loginUser').val("");
 				$('#loginPassword').val("");
-  		}
+				window.location.replace('http://localhost:8080/newItem.html');
+				$('.loginPage').addClass('hidden');
+				$('.registerPage').addClass('hidden');
+  		},
+  		error: function(XMLHttpRequest, textStatus, errorThrown) { 
+      	alert('Please use valid credentials to login or register as a user'); 
+      }
   	})	
   })
 };
@@ -157,7 +162,7 @@ function renderNewProductResults(results) {
 
 function postUsedItem() {
 	const username = localStorage.getItem('username');
-	$('.user').text(username);
+	$('.currentUser').text(username);
 	$('.uploadProduct').on('submit', () => {
 		event.preventDefault();
 		const itemName = $('#itemName').val();
@@ -262,6 +267,20 @@ function renderUsedProductResults(results) {
   )
 }
 
+function navBar() {
+	if(localStorage.getItem('username').length !== null) {
+		$('.loginPage').addClass('hidden');
+		$('.registerPage').addClass('hidden');
+		$('.currentUser').removeClass('hidden');
+		$('.logout').removeClass('hidden');
+	}
+}
+
+
+
+
+
+
 $(function () {
 	registerUser();
 	loginUser();
@@ -276,4 +295,5 @@ $(function () {
 	getNewProductApiData();
 	navToUsedItemPage();
 	getUsedProductApiData();
+	navBar();
 });

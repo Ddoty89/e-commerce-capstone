@@ -8,109 +8,105 @@
 
 	<header class='header'> 
 		<nav class='navBar'>
+
 			<ul class='navList'>
 				<li class='nav home'><a href='index.html'>Home</a></li>
 				<li class='nav newItemPage'><a href='newItem.html'>New Products</a></li>
 				<li class='nav usedItemPage'><a href='usedItem.html'>Used Products</a></li> 
 				<li class='nav userAccount'><a href='userAccount.html'>User Account</a></li>
 			</ul>
+
+			<ul class='loginRegister'>
+				<li class='nav loginPage'><a href='login.html'>Login</a></li>
+				<li class='nav registerPage'><a href='register.html'>Register</a></li>
+				<li class='nav currentUser hidden'></li>
+			</ul>
+
 		</nav>
+
+		<form class='nav logout hidden'>
+			<button>Logout</button>
+		</form>
+
 	</header>
 
-	<form class='register'>
-		<input id='firstName' type='text' name='firstName' placeholder="First Name"/>
-		<input id='lastName' type='text' name='lastName' placeholder="Last name"/>
-		<input id='userEmail' type='text' name='userEmail' placeholder='Email'/>
-		<input id='regName' type='text' name='userName' placeholder="username" autocomplete="username" required/>
-		<input id='regPassword' type='password' name='password' placeholder="password" autocomplete="new-password" required/>
-		<button>Register</button>
-	</form>
+	<main>
 
-	<form class='login'>
-		<input id='loginUser' type='text' name='userName' placeholder="username" autocomplete="username" required/>
-		<input id='loginPassword' type='password' name='password' placeholder="password" autocomplete="current-password" required/>
-		<button>Login</button>
-	</form>
-	
-	<form class='logout'>
-		<button>Logout</button>
-	</form>
-	<p class='productUser'><span class='user'></span> is the current user</p>
+		<form class='uploadProduct'>
+			<div class='picContainer'>
+				<label for='flatScreenTv'>
+					<input type='radio' id='flatScreenTv' name='pic'/>
+					<img class='usedImg' src='http://beststuffformen.com/wp-content/uploads/2013/08/Panasonic_P50ST60_Plasma_Television.jpg'/>
+				</label>
+				<label for='phones'>
+					<input type='radio' id='phones' name='pic'/>
+					<img class='usedImg' src='https://pisces.bbystatic.com/image2/BestBuy_US/store/ee/2017/mob/flx/flx_0323_evn25155-iphone.jpg;maxHeight=291;maxWidth=291'/>
+				</label>
+				<label for='wiredHeadPhones'>
+					<input type='radio' id='wiredHeadPhones' name='pic'/>
+					<img class='usedImg' src='https://www.skullcandy.com/dw/image/v2/AALZ_PRD/on/demandware.static/-/Sites-masterCatalog_Skullcandy/default/dw01dd5fdf/products/Skullcandy_Headphone_HESH2_S6HSGY-374_11_1100_Angle.jpg?sw=600&sh=600&sm=fit'/>
+				</label>
+				<label for='wirelessHeadPhones'>
+					<input type='radio' id='wirelessHeadPhones' name='pic'/>
+					<img class='usedImg' src='https://www.jbl.com/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwd9681545/UA_SportWireless11428_HERO-1605x1605px.jpg?sw=270&sh=330&sm=fit&sfrm=png'/>
+				</label>
+				<label for='speakers'>
+					<input type='radio' id='speakers' name='pic'/>
+					<img class='usedImg' src='https://pisces.bbystatic.com/image2/BestBuy_US/images/products/2946/2946634_sa.jpg;maxHeight=640;maxWidth=550'/>
+				</label>
+				<label for='desktopComputer'>
+					<input type='radio' id='desktopComputer' name='pic'/>
+					<img class='usedImg' src='https://i5.walmartimages.com/asr/8ca376c6-e886-4d50-a5fb-ac374f7d29f6_1.ca5a67d147b4bd81bc03ccd9bcd663f9.jpeg'/>
+				</label>
+				<label for='laptopComputer'>
+					<input type='radio' id='laptopComputer' name='pic'/>
+					<img class='usedImg' src='https://images-na.ssl-images-amazon.com/images/I/51tS5LCbRWL._SL1024_.jpg'/>
+				</label>
+				<label for='drone'>
+					<input type='radio' id='drone' name='pic'/>
+					<img class='usedImg' src='https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5937/5937208_sd.jpg;maxHeight=640;maxWidth=550'/>
+				</label>
+				<label for='other'>
+					<input type='radio' id='other' name='pic'/>
+					<img class='usedImg' src='http://www.sfltimes.com/wp-content/uploads/2015/07/products.jpg'/>
+				</label>
+			</div>
+			<div class='usedProductInfo1'>
+				<input id='itemName' type='text' name='itemName' placeholder="Item Name"/>
+				<select class='productTypeMenu'>
+					<option value='Tvs' selected>Televisions</option>
+					<option value='Phones'>Phones</option>
+					<option value='Head Phones'>Head Phones</option>
+					<option value='Speakers'>Speakers</option>
+					<option value='Computers'>Computers</option>
+					<option value='Drones'>Drones</option>
+					<option value='Other'>Other</option>
+				</select>
+				<input id='productValue' type='text' name='productValue' placeholder="Price"/>
+				<select class='conditionMenu'>
+					<option value='Unused'>Unused</option>
+					<option value='Like New'>Like New</option>
+					<option value='Good'>Good</option>
+					<option value='Fair'>Fair</option>
+					<option value='Damaged'>Damaged</option>
+				</select>
+			</div>
+			<div class='usedProductInfo2'>
+				<textarea id='description' rows='4' cols='73'>
+				</textarea>
+			</div>
+			<div class='post'>
+				<button class='postButton'>Post</button>
+			</div>
+		</form>
 
-	<form class='uploadProduct'>
-		<div class='picContainer'>
-			<label for='flatScreenTv'>
-				<input type='radio' id='flatScreenTv' name='pic'/>
-				<img class='usedImg' src='http://beststuffformen.com/wp-content/uploads/2013/08/Panasonic_P50ST60_Plasma_Television.jpg'/>
-			</label>
-			<label for='phones'>
-				<input type='radio' id='phones' name='pic'/>
-				<img class='usedImg' src='https://pisces.bbystatic.com/image2/BestBuy_US/store/ee/2017/mob/flx/flx_0323_evn25155-iphone.jpg;maxHeight=291;maxWidth=291'/>
-			</label>
-			<label for='wiredHeadPhones'>
-				<input type='radio' id='wiredHeadPhones' name='pic'/>
-				<img class='usedImg' src='https://www.skullcandy.com/dw/image/v2/AALZ_PRD/on/demandware.static/-/Sites-masterCatalog_Skullcandy/default/dw01dd5fdf/products/Skullcandy_Headphone_HESH2_S6HSGY-374_11_1100_Angle.jpg?sw=600&sh=600&sm=fit'/>
-			</label>
-			<label for='wirelessHeadPhones'>
-				<input type='radio' id='wirelessHeadPhones' name='pic'/>
-				<img class='usedImg' src='https://www.jbl.com/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwd9681545/UA_SportWireless11428_HERO-1605x1605px.jpg?sw=270&sh=330&sm=fit&sfrm=png'/>
-			</label>
-			<label for='speakers'>
-				<input type='radio' id='speakers' name='pic'/>
-				<img class='usedImg' src='https://pisces.bbystatic.com/image2/BestBuy_US/images/products/2946/2946634_sa.jpg;maxHeight=640;maxWidth=550'/>
-			</label>
-			<label for='desktopComputer'>
-				<input type='radio' id='desktopComputer' name='pic'/>
-				<img class='usedImg' src='https://i5.walmartimages.com/asr/8ca376c6-e886-4d50-a5fb-ac374f7d29f6_1.ca5a67d147b4bd81bc03ccd9bcd663f9.jpeg'/>
-			</label>
-			<label for='laptopComputer'>
-				<input type='radio' id='laptopComputer' name='pic'/>
-				<img class='usedImg' src='https://images-na.ssl-images-amazon.com/images/I/51tS5LCbRWL._SL1024_.jpg'/>
-			</label>
-			<label for='drone'>
-				<input type='radio' id='drone' name='pic'/>
-				<img class='usedImg' src='https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5937/5937208_sd.jpg;maxHeight=640;maxWidth=550'/>
-			</label>
-			<label for='other'>
-				<input type='radio' id='other' name='pic'/>
-				<img class='usedImg' src='http://www.sfltimes.com/wp-content/uploads/2015/07/products.jpg'/>
-			</label>
+		<div>
+			<ul class='userUsedItem'>
+
+			</ul>
 		</div>
-		<div class='usedProductInfo1'>
-			<input id='itemName' type='text' name='itemName' placeholder="Item Name"/>
-			<select class='productTypeMenu'>
-				<option value='Tvs' selected>Televisions</option>
-				<option value='Phones'>Phones</option>
-				<option value='Head Phones'>Head Phones</option>
-				<option value='Speakers'>Speakers</option>
-				<option value='Computers'>Computers</option>
-				<option value='Drones'>Drones</option>
-				<option value='Other'>Other</option>
-			</select>
-			<input id='productValue' type='text' name='productValue' placeholder="Price"/>
-			<select class='conditionMenu'>
-				<option value='Unused'>Unused</option>
-				<option value='Like New'>Like New</option>
-				<option value='Good'>Good</option>
-				<option value='Fair'>Fair</option>
-				<option value='Damaged'>Damaged</option>
-			</select>
-		</div>
-		<div class='usedProductInfo2'>
-			<textarea id='description' rows='4' cols='73'>
-			</textarea>
-		</div>
-		<div class='post'>
-			<button class='postButton'>Post</button>
-		</div>
-	</form>
 
-	<div>
-		<ul class='userUsedItem'>
-
-		</ul>
-	</div>
-
+</main>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src='app.js'></script>
 </body>

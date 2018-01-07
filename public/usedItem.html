@@ -8,50 +8,102 @@
 
 	<header class='header'> 
 		<nav class='navBar'>
+
 			<ul class='navList'>
 				<li class='nav home'><a href='index.html'>Home</a></li>
 				<li class='nav newItemPage'><a href='newItem.html'>New Products</a></li>
-				<li class='nav usedItemPage'><a href='usedItem.html'>Used Products</a></li>
+				<li class='nav usedItemPage'><a href='usedItem.html'>Used Products</a></li> 
 				<li class='nav userAccount'><a href='userAccount.html'>User Account</a></li>
 			</ul>
+
+			<ul class='loginRegister'>
+				<li class='nav loginPage'><a href='login.html'>Login</a></li>
+				<li class='nav registerPage'><a href='register.html'>Register</a></li>
+				<li class='nav currentUser hidden'></li>
+			</ul>
+
 		</nav>
 	</header>
 
-
 	<div class='sideFilter'>
 		<div class='itemTypeSelector'>
-			<input id='tvs' type='checkbox' name='select'/>
-			<label for='tvs'>Tv's</label>
-			<input id='phones' type='checkbox' name='select'/>
-			<label for='phones'>Phones</label>
-			<input id='headPhones' type='checkbox' name='select'/>
-			<label for='headPhones'>Head Phones</label>
-			<input id='speakers' type='checkbox' name='select'/>
-			<label for='speakers'>Speakers</label>
-			<input id='computers' type='checkbox' name='select'/>
-			<label for='computers'>Computers</label>
-			<input id='drones' type='checkbox' name='select'/>
-			<label for='drones'>Drones</label>
+			<p>Category</p>
+			<section>
+				<input class='tvs' id='tvs' type='checkbox' name='select'/>
+				<label class='tvs' for='tvs'>Televisions</label>
+			</section>
+			<section>
+				<input class='phones' id='phones' type='checkbox' name='select'/>
+				<label class='phones' for='phones'>Phones</label>
+			</section>
+			<section>
+				<input class='wHeadPhones' id='wHeadPhones' type='checkbox' name='select'/>
+				<label class='wHeadPhones' for='wHeadPhones'>Wired Head Phones</label>
+			</section>
+			<section>
+				<input class='wLHeadPhones' id='wLHeadPhones' type='checkbox' name='select'/>
+				<label class='wLHeadPhones' for='wLHeadPhones'>Wireless Head Phones</label>
+			</section>
+			<section>
+				<input class='speakers' id='speakers' type='checkbox' name='select'/>
+				<label class='speakers' for='speakers'>Speakers</label>
+			</section>
+			<section>
+				<input class='dComputers' id='dComputers' type='checkbox' name='select'/>
+				<label class='dComputers' for='dComputers'>Desktop Computers</label>
+			</section>
+			<section>
+				<input class='lComputers' id='lComputers' type='checkbox' name='select'/>
+				<label class='lComputers' for='lComputers'>Laptop Computers</label>
+			</section>
+			<section>
+				<input class='drones' id='drones' type='checkbox' name='select'/>
+				<label class='drones' for='drones'>Drones</label>
+			</section>
+			<section>
+				<input class='other' id='other' type='checkbox' name='select'/>
+				<label class='other' for='other'>Other</label>
+			</section>
 		</div>
+
 		<div class='priceSelector'>
-			<input id='fiftenHundred+' type='checkbox' name='select'/>
-			<label for='fiftenHundred+'>1500+</label>
-			<input id='fiveHundred-fifteenHundred' type='checkbox' name='select'/>
-			<label for='fiveHundred-fifteenHundred'>500-1500</label>
-			<input id='twoHundred-fiveHundred' type='checkbox' name='select'/>
-			<label for='twoHundred-fiveHundred'>200-500</label>
-			<input id='oneHundred-twoHundred' type='checkbox' name='select'/>
-			<label for='oneHundred-twoHundred'>100-200</label>
-			<input id='fifty-oneHundred' type='checkbox' name='select'/>
-			<label for='fifty-oneHundred'>50-100</label>
-			<input id='fifty-orLess' type='checkbox' name='select'/>
-			<label for='fifty-orLess'>50 or less</label>
+			<p>Price</p>
+			<section>
+				<input id='fiftenHundred+' type='checkbox' name='select'/>
+				<label for='fiftenHundred+'>1500+</label>
+			</section>
+			<section>
+				<input id='fiveHundred-fifteenHundred' type='checkbox' name='select'/>
+				<label for='fiveHundred-fifteenHundred'>500-1500</label>
+			</section>
+			<section>
+				<input id='twoHundred-fiveHundred' type='checkbox' name='select'/>
+				<label for='twoHundred-fiveHundred'>200-500</label>
+			</section>
+			<section>
+				<input id='oneHundred-twoHundred' type='checkbox' name='select'/>
+				<label for='oneHundred-twoHundred'>100-200</label>
+			</section>
+			<section>
+				<input id='fifty-oneHundred' type='checkbox' name='select'/>
+				<label for='fifty-oneHundred'>50-100</label>
+			</section>
+			<section>
+				<input id='fifty-orLess' type='checkbox' name='select'/>
+				<label for='fifty-orLess'>50 or less</label>
+			</section>
 		</div>
-		<div class='new/used'>
-			<input id='new' type='checkbox' name='select'/>
-			<label for='new'>New</label>
-			<input id='used' type='checkbox' name='select'/>
-			<label for='used'>Used</label>
+
+		<div class='conditionSelector'>
+			<p>Condition
+			<section>
+				<input id='new' type='checkbox' name='select'/>
+				<label for='new'>New</label>
+			</section>
+			<section>
+				<input id='used' type='checkbox' name='select'/>
+				<label for='used'>Used</label>
+			</section>
 		</div>
 
 		<button class='initiatefilters'>Search</button>
@@ -65,7 +117,7 @@
 		</ul>
 	</div>
 
-</main>
+	</main>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src='app.js'></script>
 </body>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register yourself as a user</title>
+	<link href='main.css' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+
+	<header class='header'> 
+		<nav class='navBar'>
+			
+			<ul class='navList'>
+				<li class='nav home'><a href='index.html'>Home</a></li>
+				<li class='nav newItemPage'><a href='newItem.html'>New Products</a></li>
+				<li class='nav usedItemPage'><a href='usedItem.html'>Used Products</a></li> 
+				<li class='nav userAccount'><a href='userAccount.html'>User Account</a></li>
+			</ul>
+
+			<ul class='loginRegister'>
+				<li class='nav loginPage'><a href='login.html'>Login</a></li>
+				<li class='nav registerPage'><a href='register.html'>Register</a></li>
+				<li class='nav currentUser hidden'></li>
+			</ul>
+
+		</nav>
+	</header>
+
+	<div class='registerContainer'>
+		<form class='register'>
+			<input id='firstName' type='text' name='firstName' placeholder="First Name"/>
+			<input id='lastName' type='text' name='lastName' placeholder="Last name"/>
+			<input id='userEmail' type='text' name='userEmail' placeholder='Email'/>
+			<input id='regName' type='text' name='userName' placeholder="username" autocomplete="username" required/>
+			<input id='regPassword' type='password' name='password' placeholder="password" autocomplete="new-password" required/>
+			<button class='registerButton'>Register</button>
+		</form>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src='app.js'></script>
+</body>
+</html>
