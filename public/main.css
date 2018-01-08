@@ -69,14 +69,13 @@ a:visited {
 .header {
 	width: 100%;
 	background-color:#f7f1cf;
-	padding: 15px 0px;
 	position:relative;
 }
 
 .nav {
 	list-style-type: none;
 	display: inline-block;
-	margin-right: 20px;
+	margin: 0px 20px;
 	color: black;
 }
 
@@ -88,6 +87,7 @@ a:visited {
 .navList,
 .loginRegister {
 	display: inline-block;
+	padding: 15px 0px;
 }
 
 .loginRegister,

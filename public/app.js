@@ -251,6 +251,10 @@ function userAccountData(data) {
 	}
 }
 
+
+// DO a GET request to get the user data and the email address above i get the products but not the user
+
+
 function renderUsedProductResults(results) {
 	console.log(results)
 	return(
@@ -277,14 +281,14 @@ function renderUsedProductResults(results) {
 // 	}
 // }
 
-function usedSideFilters() {
-	console.log('hello');
-	$('.usedSideFilter').on('submit', () => {
-		console.log('there')
-		const category = $('.itemTypeSelector').val();
-		console.log(category)
-	})
-}
+// function usedSideFilters() {
+// 	console.log('hello');
+// 	$('.usedSideFilter').on('submit', () => {
+// 		console.log('there')
+// 		const category = $('.itemTypeSelector').val();
+// 		console.log(category)
+// 	})
+// }
 
 
 
@@ -304,5 +308,5 @@ $(function () {
 	navToUsedItemPage();
 	getUsedProductApiData();
 	// navBar();
-	usedSideFilters();
+	// usedSideFilters();
 });
