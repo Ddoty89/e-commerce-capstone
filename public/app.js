@@ -252,6 +252,7 @@ function userAccountData(data) {
 }
 
 function renderUsedProductResults(results) {
+	console.log(results)
 	return(
 		`<li>
 			<img class='usedImg' src='${results.image}'/>
@@ -262,21 +263,28 @@ function renderUsedProductResults(results) {
 			<p class='usedProductCondition'>${results.condition}</p>
 			<p class='usedProductDescription'>${results.description}</p>
       <button class='saveItem'>Save</button>
-      <button class='contactUser'>Contact User</button>
+      <button class='contactUser'><a href="mailto:${results.email}">${results.email}</a></button>
     </li>`
   )
 }
 
-function navBar() {
-	if(localStorage.getItem('username').length !== null) {
-		$('.loginPage').addClass('hidden');
-		$('.registerPage').addClass('hidden');
-		$('.currentUser').removeClass('hidden');
-		$('.logout').removeClass('hidden');
-	}
+// function navBar() {
+// 	if(localStorage.getItem('username').length !== null) {
+// 		$('.loginPage').addClass('hidden');
+// 		$('.registerPage').addClass('hidden');
+// 		$('.currentUser').removeClass('hidden');
+// 		$('.logout').removeClass('hidden');
+// 	}
+// }
+
+function usedSideFilters() {
+	console.log('hello');
+	$('.usedSideFilter').on('submit', () => {
+		console.log('there')
+		const category = $('.itemTypeSelector').val();
+		console.log(category)
+	})
 }
-
-
 
 
 
@@ -295,5 +303,6 @@ $(function () {
 	getNewProductApiData();
 	navToUsedItemPage();
 	getUsedProductApiData();
-	navBar();
+	// navBar();
+	usedSideFilters();
 });

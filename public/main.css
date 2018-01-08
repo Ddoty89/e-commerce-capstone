@@ -1,33 +1,56 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  padding:0;
 }
 
 main {
 max-width: 1000px;
+padding-left:175px;
+border: 1px solid black;
 }
+
+main,
+.newSideFilter {
+	display: inline-block;
+}
+
+main,
+.usedSideFilter {
+	display: inline-block;
+}
+
+
+/* APP.JS GET REQUESTS FOR PRODUCTS */
 
 .addNewItem > li {
 	border: 1px solid black;
-	height: 400px;
+	height: 300px;
 	width: 200px;
 	display: inline-block;
-	/*padding-top: 50px;*/
+	border-radius: 3px;
+	padding:25px;
 }
 
 .addUsedItem > li {
 	border: 1px solid black;
-	height: 400px;
+	height: 300px;
 	width: 200px;
 	display: inline-block;
-	/*padding-top: 50px;*/
+	border-radius: 3px;
+	padding:25px;
 }
+
+/* APP.JS GET REQUESTS FOR PRODUCTS */
+
+
 
 img {
 	max-width: 200px;
-	max-height: 290px;
+	max-height: 150px;
 }
 
+/* NAV BAR */
 
 a {
 	display: block;
@@ -45,8 +68,9 @@ a:visited {
 
 .header {
 	width: 100%;
-	background-color: tan;
+	background-color:#f7f1cf;
 	padding: 15px 0px;
+	position:relative;
 }
 
 .nav {
@@ -71,6 +95,11 @@ a:visited {
 	float: right;
 	margin-right:15px;
 }
+
+/* NAV BAR */
+
+
+/* USER ACCOUNT PICTURES AND POSTING */
 
 label > input{
   visibility: hidden;
@@ -105,6 +134,11 @@ label > input:checked + img{
 	display:block;
 }
 
+/* USER ACCOUNT PICTURES AND POSTING */
+
+
+/* LOGIN PAGE */
+
 #loginUser,
 #loginPassword,
 .loginButton {
@@ -126,6 +160,11 @@ label > input:checked + img{
 	margin:auto;
 }
 
+/* LOGIN PAGE */
+
+
+/* REGISTER PAGE */
+
 .registerContainer {
 	width:200px;
 	height:290px;
@@ -146,27 +185,36 @@ label > input:checked + img{
 	margin-top:25px;
 }
 
-.sideFilter {
+/*REGISTER PAGE*/
+
+
+
+.newSideFilter,
+.usedSideFilter {
 	height:100%;
 	position:fixed;
-	background-color:#5aebad;
+	background-color:#00aac3;
 	width:175px;
+	float:left;
 }
 
-section {
+/*.section {
 	display:block;
-}
+}*/
 
 .itemTypeSelector,
 .priceSelector,
 .conditionSelector {
+	display: block;
 	padding: 15px 5px;
 }
 
-.initiatefilters {
+.initiateFilters {
 	margin: 15px 5px;
 	border-radius: 3px
 }
+
+
 
 .hidden {
 	display:none;
