@@ -7,7 +7,6 @@
 main {
 max-width: 1000px;
 padding-left:175px;
-border: 1px solid black;
 }
 
 main,
@@ -21,21 +20,45 @@ main,
 }
 
 
+/* INDEX.HTML PAGE */
+
+.welcome,
+.intro,
+.description {
+	margin: 20px 50px;
+}
+
+.homeLoginRegister {
+	width:200px;
+	height:30px;
+	margin:auto;
+}
+
+.homeLogin,
+.homeRegister {
+	width: 100px;
+}
+
+.homeRegister {
+	margin-top:30px;
+}
+
+/* INDEX.HTML PAGE */
+
 /* APP.JS GET REQUESTS FOR PRODUCTS */
 
 .addNewItem > li {
 	height: 300px;
 	width: 200px;
 	display: inline-block;
-	/*padding:25px;*/
+	margin-right:20px;
 }
 
 .addUsedItem > li {
-	border: 1px solid black;
 	height: 300px;
 	width: 200px;
 	display: inline-block;
-	/*padding:25px;*/
+	margin-right:20px;
 }
 
 /* APP.JS GET REQUESTS FOR PRODUCTS */
@@ -161,11 +184,16 @@ label > input:checked + img{
 
 .loginContainer {
 	width:200px;
-	height:225px;
+	height:200px;
 	border-radius:5px;
 	border:1px solid tan;
 	background-color:tan;
 	margin:auto;
+	margin-top:100px;
+}
+
+.loginButton {
+	width:100px;
 }
 
 /* LOGIN PAGE */
@@ -180,6 +208,7 @@ label > input:checked + img{
 	border:1px solid tan;
 	background-color:tan;
 	margin:auto;
+	margin-top:100px;
 }
 
 #firstName, 
@@ -191,6 +220,10 @@ label > input:checked + img{
 	display: block;
 	margin:auto;
 	margin-top:25px;
+}
+
+.registerButton {
+	width:100px;
 }
 
 /*REGISTER PAGE*/

@@ -1,7 +1,45 @@
 const state = {
 	productType: '',
 	condition: '',
-	currentImageValue: ''
+	currentImageValue: '',
+	fiterSystem: [
+		{Television: {
+			checked: false
+			}
+		},
+		{Phone: {
+			checked: false
+			}
+		},
+		{Wired Head Phones: {
+			checked: false
+			}
+		},
+		{Wirelss Head Phones: {
+			checked: false
+			}
+		},
+		{Speakers: {
+			checked: false
+			}
+		},
+		{Desktop Computer: {
+			checked: false
+			}
+		},
+		{LapTop Computer: {
+			checked: false
+			}
+		},
+		{Drone: {
+			checked: false
+			}
+		},
+		{Other: {
+			checked: false
+			}
+		}
+	]
 }
 
 function registerUser() {
@@ -151,14 +189,16 @@ function getNewProductData(data) {
 }
 
 function renderNewProductResults(results) {
-	return(`<li>
+	return(
+		`<li>
 	    <img class='productImage' src='${results.newImage}'/>
       <p class='productName'>${results.newName}</p>
       <p class='productType'>${results.newType}</p>
       <p class='productPrice'>${results.newPrice}</p>
       <button class='linkToPurchase'><a href='${results.newURL}' target='blank'>Purchase Item</a></button>
       <button class='saveItem'>Save</button>
-    </li>`)
+    </li>`
+   )
 }
 
 function postUsedItem() {
@@ -240,10 +280,6 @@ function getUsedProductApiData(callback) {
 	})
 }
 
-// DO a GET request to get the user data and the email address above i get the products but not the user
-
-
-
 function getUserData() {
 	$.ajax({
 		url:'http://localhost:8080/api/users/',
@@ -306,17 +342,11 @@ function navBar() {
 }
 
 function newSideFilters() {
-	$('.newCatFilter').click(function() {
-		console.log('hello')
-		console.log($(this).text());
+	$('.newInitiatefilters').submit(function(event) {
+		event.preventDefault();
+		console.log($('.newCatFilter').attr('checked'))
 	})
 }
-
-// function getUsedItemImage() {
-// 	$('.usedImg').click(function() {
-// 		state.currentImageValue = $(this).attr("src");
-// 	})
-// }
 
 
 $(function () {
