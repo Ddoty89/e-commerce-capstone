@@ -24,12 +24,10 @@ main,
 /* APP.JS GET REQUESTS FOR PRODUCTS */
 
 .addNewItem > li {
-	border: 1px solid black;
 	height: 300px;
 	width: 200px;
 	display: inline-block;
-	border-radius: 3px;
-	padding:25px;
+	/*padding:25px;*/
 }
 
 .addUsedItem > li {
@@ -37,8 +35,7 @@ main,
 	height: 300px;
 	width: 200px;
 	display: inline-block;
-	border-radius: 3px;
-	padding:25px;
+	/*padding:25px;*/
 }
 
 /* APP.JS GET REQUESTS FOR PRODUCTS */
@@ -75,25 +72,29 @@ a:visited {
 .nav {
 	list-style-type: none;
 	display: inline-block;
-	margin: 0px 20px;
 	color: black;
+	margin-right:25px;
 }
 
-.navBar,
-.logout {
+.navBar {
 	display:inline-block;
+	margin-top:15px;
+  margin-bottom:15px
 }
 
-.navList,
+.navList {
+  margin-left:20px;
+  margin-right:300px;
+	float:left;
+}
+
 .loginRegister {
-	display: inline-block;
-	padding: 15px 0px;
+	float:right;
 }
 
-.loginRegister,
 .logout {
-	float: right;
-	margin-right:15px;
+	margin-left: 50px;
+	width:75px;
 }
 
 /* NAV BAR */
@@ -132,6 +133,13 @@ label > input:checked + img{
 	width: 70px;
 	margin:auto;
 	display:block;
+}
+
+#itemName,
+.productTypeMenu,
+#productValue,
+.conditionMenu {
+	width:100px;
 }
 
 /* USER ACCOUNT PICTURES AND POSTING */
@@ -197,10 +205,6 @@ label > input:checked + img{
 	width:175px;
 	float:left;
 }
-
-/*.section {
-	display:block;
-}*/
 
 .itemTypeSelector,
 .priceSelector,

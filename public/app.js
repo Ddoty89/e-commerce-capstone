@@ -93,6 +93,7 @@ function logout() {
 	$('.logout').on('submit', () => {
 		localStorage.removeItem('username');
 		localStorage.removeItem('token');
+		localStorage.removeItem('email');
 	})
 }
 
@@ -171,6 +172,7 @@ function postUsedItem() {
     const productType = state.productType;
     const condition = state.condition;
     const image = state.currentImageValue;
+    const email = localStorage.getItem('email');
 		const product = {
 			username,
   	  itemName,
@@ -178,7 +180,8 @@ function postUsedItem() {
   		productValue,
 		  condition,
 		  description,
-		  image
+		  image,
+		  email
   	}
 		$.ajax({
 			url:'http://localhost:8080/api/products/used', 
@@ -237,6 +240,32 @@ function getUsedProductApiData(callback) {
 	})
 }
 
+// DO a GET request to get the user data and the email address above i get the products but not the user
+
+
+
+function getUserData() {
+	$.ajax({
+		url:'http://localhost:8080/api/users/',
+		type:'GET',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		success: function(response) {
+			sortUserData(response)
+		}
+	})
+}
+
+function sortUserData(data) {
+	//need to check if user is being used to post a used item and then I can include their email on that one
+	for(let i = 0; i < data.length; i++) {
+		if(localStorage.getItem('username') === data[i].username) {
+			localStorage.setItem('email', data[i].email);
+		}
+	}
+}
+
 function getUsedProductData(data) {
 	const result = data.usedproduct.map(item => renderUsedProductResults(item));
 	$('.addUsedItem').append(result);
@@ -251,12 +280,7 @@ function userAccountData(data) {
 	}
 }
 
-
-// DO a GET request to get the user data and the email address above i get the products but not the user
-
-
 function renderUsedProductResults(results) {
-	console.log(results)
 	return(
 		`<li>
 			<img class='usedImg' src='${results.image}'/>
@@ -267,30 +291,32 @@ function renderUsedProductResults(results) {
 			<p class='usedProductCondition'>${results.condition}</p>
 			<p class='usedProductDescription'>${results.description}</p>
       <button class='saveItem'>Save</button>
-      <button class='contactUser'><a href="mailto:${results.email}">${results.email}</a></button>
+      <button class='contactUser'><a href="mailto:${results.email}">Contact User</a></button>
     </li>`
   )
 }
 
-// function navBar() {
-// 	if(localStorage.getItem('username').length !== null) {
-// 		$('.loginPage').addClass('hidden');
-// 		$('.registerPage').addClass('hidden');
-// 		$('.currentUser').removeClass('hidden');
-// 		$('.logout').removeClass('hidden');
-// 	}
-// }
+function navBar() {
+	if(localStorage.getItem('username').length !== null) {
+		$('.loginPage').addClass('hidden');
+		$('.registerPage').addClass('hidden');
+		$('.currentUser').removeClass('hidden');
+		$('.logout').removeClass('hidden');
+	}
+}
 
-// function usedSideFilters() {
-// 	console.log('hello');
-// 	$('.usedSideFilter').on('submit', () => {
-// 		console.log('there')
-// 		const category = $('.itemTypeSelector').val();
-// 		console.log(category)
+function newSideFilters() {
+	$('.newCatFilter').click(function() {
+		console.log('hello')
+		console.log($(this).text());
+	})
+}
+
+// function getUsedItemImage() {
+// 	$('.usedImg').click(function() {
+// 		state.currentImageValue = $(this).attr("src");
 // 	})
 // }
-
-
 
 
 $(function () {
@@ -305,8 +331,9 @@ $(function () {
 	postNewItem();
 	navToNewItemPage();
 	getNewProductApiData();
+	getUserData();
 	navToUsedItemPage();
 	getUsedProductApiData();
-	// navBar();
-	// usedSideFilters();
+	navBar();
+	newSideFilters();
 });

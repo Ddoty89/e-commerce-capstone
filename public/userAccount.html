@@ -20,14 +20,10 @@
 				<li class='nav loginPage'><a href='login.html'>Login</a></li>
 				<li class='nav registerPage'><a href='register.html'>Register</a></li>
 				<li class='nav currentUser hidden'></li>
+				<li class='nav'><button class='logout hidden'>Logout</button></li>
 			</ul>
 
 		</nav>
-
-		<form class='nav logout hidden'>
-			<button>Logout</button>
-		</form>
-
 	</header>
 
 		<form class='uploadProduct'>
@@ -73,11 +69,13 @@
 				<input id='itemName' type='text' name='itemName' placeholder="Item Name"/>
 				<select class='productTypeMenu'>
 					<option></option>
-					<option value='Tvs'>Televisions</option>
+					<option value='Televisions'>Televisions</option>
 					<option value='Phones'>Phones</option>
-					<option value='Head Phones'>Head Phones</option>
+					<option value='Wired Head Phones'>Wired Head Phones</option>
+					<option value='Wireless Head Phones'>Wireless Head Phones</option>
 					<option value='Speakers'>Speakers</option>
-					<option value='Computers'>Computers</option>
+					<option value='Desktop Computer'>Desktop Computer</option>
+					<option value='Laptop Computer'>Laptop Computer</option>
 					<option value='Drones'>Drones</option>
 					<option value='Other'>Other</option>
 				</select>
@@ -92,7 +90,7 @@
 				</select>
 			</div>
 			<div class='usedProductInfo2'>
-				<textarea id='description' rows='4' cols='73'>
+				<textarea id='description' rows='4' cols='66'>
 				</textarea>
 			</div>
 			<div class='post'>

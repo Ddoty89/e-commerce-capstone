@@ -32,6 +32,10 @@ const UsedProductSchema = mongoose.Schema({
   image: {
     type: String,
     default: ''
+  },
+  email: {
+    type: String,
+    default: ''
   }
 });
 
@@ -43,7 +47,8 @@ UsedProductSchema.methods.serialize = function() {
     productValue: this.productValue || '',
     condition: this.condition || '',
     description: this.description || '',
-    image: this.image || ''
+    image: this.image || '',
+    email: this.email || ''
   };
 };
 
