@@ -245,7 +245,8 @@ label > input:checked + img{
 	padding: 15px 5px;
 }
 
-.initiateFilters {
+.newInitiatefilters {
+	width:50px;
 	margin: 15px 5px;
 	border-radius: 3px
 }
