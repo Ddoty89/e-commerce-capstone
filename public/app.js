@@ -2,40 +2,49 @@ const state = {
 	productType: '',
 	condition: '',
 	currentImageValue: '',
-	fiterSystem: [
-		{Television: {
+	filterSystem: [
+		{
+			Television: {
 			checked: false
 			}
 		},
-		{Phone: {
+		{
+			Phone: {
 			checked: false
 			}
 		},
-		{Wired Head Phones: {
+		{
+			"Wired Head Phones": {
+				checked: false
+			}
+		},
+		{
+			"Wireless Head Phones": {
 			checked: false
 			}
 		},
-		{Wirelss Head Phones: {
+		{
+			Speakers: {
 			checked: false
 			}
 		},
-		{Speakers: {
+		{
+			"Desktop Computer": {
 			checked: false
 			}
 		},
-		{Desktop Computer: {
+		{
+			"Laptop Computer": {
 			checked: false
 			}
 		},
-		{LapTop Computer: {
+		{
+			Drone: {
 			checked: false
 			}
 		},
-		{Drone: {
-			checked: false
-			}
-		},
-		{Other: {
+		{
+			Other: {
 			checked: false
 			}
 		}
@@ -348,6 +357,45 @@ function newSideFilters() {
 	})
 }
 
+function filterCategories() {
+	$('.newTv').html(`
+		<input class='newTvCheck' id='tv' type='checkbox' name='select'/>
+		<label id='newTv' for='tv'>${Object.keys(state.filterSystem[0])}</label>`
+	)
+	$('.newPhone').html(`
+		<input class='newPhoneCheck' id='phone' type='checkbox' name='select'/>
+		<label id='newPhone' for='phone'>${Object.keys(state.filterSystem[1])}</label>`
+	)
+	$('.newWHeadPhones').html(`
+		<input class='newWHeadPhonesCheck' id='wHeadPhones' type='checkbox' name='select'/>
+		<label id='newWHeadPhones' for='wHeadPhones'>${Object.keys(state.filterSystem[2])}</label>`
+	)
+	$('.newWLHeadPhones').html(`
+		<input class='newWLHeadPhonesCheck' id='wLHeadPhones' type='checkbox' name='select'/>
+		<label id='newWLHeadPhones' for='wLHeadPhones'>${Object.keys(state.filterSystem[3])}</label>`
+	)
+	$('.newSpeakers').html(`
+		<input class='newSpeakersCheck' id='speakers' type='checkbox' name='select'/>
+		<label id='newSpeakers' for='speakers'>${Object.keys(state.filterSystem[4])}</label>`
+	)
+	$('.newDComputer').html(`
+		<input class='newDComputerCheck' id='dComputer' type='checkbox' name='select'/>
+		<label id='newDComputer' for='dComputer'>${Object.keys(state.filterSystem[5])}</label>`
+	)
+	$('.newLComputer').html(`
+		<input class='newLComputerCheck' id='lComputer' type='checkbox' name='select'/>
+		<label id='newLComputer' for='lComputer'>${Object.keys(state.filterSystem[6])}</label>`
+	)
+	$('.newDrone').html(`
+		<input class='newDroneCheck' id='drone' type='checkbox' name='select'/>
+		<label id='newDrone' for='drone'>${Object.keys(state.filterSystem[7])}</label>`
+	)
+	$('.newOther').html(`
+		<input class='newOtherCheck' id='other' type='checkbox' name='select'/>
+		<label id='newOther' for='other'>${Object.keys(state.filterSystem[8])}</label>`
+	)
+}
+
 
 $(function () {
 	registerUser();
@@ -366,4 +414,5 @@ $(function () {
 	getUsedProductApiData();
 	navBar();
 	newSideFilters();
+	filterCategories();
 });

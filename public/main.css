@@ -75,7 +75,6 @@ img {
 a {
 	display: block;
 	text-decoration: none;
-	color:;
 }
 
 a {
@@ -107,7 +106,7 @@ a:visited {
 
 .navList {
   margin-left:20px;
-  margin-right:300px;
+  margin-right:200px;
 	float:left;
 }
 
