@@ -240,15 +240,21 @@ label > input:checked + img{
 
 .itemTypeSelector,
 .priceSelector,
-.conditionSelector {
+.newInitiatefilters,
+.startNewSearch {
 	display: block;
-	padding: 15px 5px;
+	margin: 15px 5px;
 }
 
-.newInitiatefilters {
+.newInitiatefilters,
+.startNewSearch {
 	width:50px;
 	margin: 15px 5px;
 	border-radius: 3px
+}
+
+.startNewSearch {
+	width:100px;
 }
 
 

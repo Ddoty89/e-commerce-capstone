@@ -235,7 +235,6 @@ function renderNewProductResults(results) {
       <p class='productType'>${results.newType}</p>
       <p class='productPrice'>${results.newPrice}</p>
       <button class='linkToPurchase'><a href='${results.newURL}' target='blank'>Purchase Item</a></button>
-      <button class='saveItem'>Save</button>
     </li>`
    )
 }
@@ -443,48 +442,6 @@ function filterCategories() {
 	$('.newOther').change(function() {
 		state.filterSystem[8].Other.checked ^= true;
 	})
-	$('.1500AndUp').html(`
-		<input class='newFiftenHundred+' id='1500' type='checkbox' name='select'/>
-		<label id='1500AndUp' for='1500'>${Object.keys(state.filterSystem[9])}</label>`
-	)
-	$('.1500AndUp').change(function() {
-		state.filterSystem[9]['1500+'].checked ^= true;
-	})
-	$('.500-1500').html(`
-		<input class='newFiveHundred-fifteenHundred' id='500' type='checkbox' name='select'/>
-		<label id='500-1500' for='500'>${Object.keys(state.filterSystem[10])}</label>`
-	)
-	$('.500-1500').change(function() {
-		state.filterSystem[10]['500-1500'].checked ^= true;
-	})
-	$('.200-500').html(`
-		<input class='newTwoHundred-fiveHundred' id='200' type='checkbox' name='select'/>
-		<label id='newPriceFilter' for='200'>${Object.keys(state.filterSystem[11])}</label>`
-	)
-	$('.200-500').change(function() {
-		state.filterSystem[11]['200-500'].checked ^= true;
-	})
-	$('.100-200').html(`
-		<input class='newOneHundred-twoHundred' id='100' type='checkbox' name='select'/>
-		<label id='100-200' for='100'>${Object.keys(state.filterSystem[12])}</label>`
-	)
-	$('.100-200').change(function() {
-		state.filterSystem[12]['100-200'].checked ^= true;
-	})
-	$('.50-100').html(`
-		<input class='newFifty-oneHundred' id='50' type='checkbox' name='select'/>
-		<label id='50-100' for='50'>${Object.keys(state.filterSystem[13])}</label>`
-	)
-	$('.50-100').change(function() {
-		state.filterSystem[13]['50-100'].checked ^= true;
-	})
-	$('.LessThan50').html(`
-		<input class='newFifty-orLess' id='49.99' type='checkbox' name='select'/>
-		<label id='LessThan50' for='49.99'>${Object.keys(state.filterSystem[14])}</label>`
-	)
-	$('.LessThan50').change(function() {
-		state.filterSystem[14]['Less than 50'].checked ^= true;
-	})
 }
 
 function newSideFilters() {
@@ -517,24 +474,6 @@ function newSideFilters() {
 			if(state.filterSystem[8].Other.checked === 1) {
 				searchFilters.push(Object.keys(state.filterSystem[8])[0])
 			}
-			if(state.filterSystem[9]["1500+"].checked === 1) {
-				searchFilters.push(Object.keys(state.filterSystem[9])[0])
-			}
-			if(state.filterSystem[10]["500-1500"].checked === 1) {
-				searchFilters.push(Object.keys(state.filterSystem[10])[0])
-			}
-			if(state.filterSystem[11]["200-500"].checked === 1) {
-				searchFilters.push(Object.keys(state.filterSystem[11])[0])
-			}
-			if(state.filterSystem[12]["100-200"].checked === 1) {
-				searchFilters.push(Object.keys(state.filterSystem[12])[0])
-			}
-			if(state.filterSystem[13]["50-100"].checked === 1) {
-				searchFilters.push(Object.keys(state.filterSystem[13])[0])
-			}
-			if(state.filterSystem[14]["Less than 50"].checked === 1) {
-				searchFilters.push(Object.keys(state.filterSystem[14])[0])
-			}
 			sortFilterForNewProducts(searchFilters)
 	})
 }
@@ -547,14 +486,94 @@ function sortFilterForNewProducts(searchParams) {
 			'Content-Type': 'application/json'
 		},
 		success: function(response) {
-			const results = []
-			console.log(response.newproducts)
-			console.log(searchParams)
-
-			// renderNewProductResults(response)
+			$('.addNewItem').html('');
+			const items = response.newproducts.map(item => item.newType);
+			const indexOfSearched = searchParams.map(searched => items.indexOf(searched));
+			const filtered = indexOfSearched.filter(num => num > -1);
+			const itemToDisplay = filtered.map(num => items[num]);
+			if(itemToDisplay.length > 0) {
+				for(let i = 0; i < response.newproducts.length; i++) {
+					for(let j = 0; j < itemToDisplay.length; j++) {
+						if(response.newproducts[i].newType === itemToDisplay[j]) {
+							$('.addNewItem').append(renderNewProductResults(response.newproducts[i]))
+						}
+					}
+				}
+			} else {
+				$('.addNewItem').html(`<h2>Sorry there no products with your selected filters</h2`)
+			}
 		}
 	})
 }
+
+function usedSideFilters() {
+	$('.usedInitiatefilters').click(function() {
+		const searchFilters =[];
+			if(state.filterSystem[0].Television.checked === 1) {
+				searchFilters.push(Object.keys(state.filterSystem[0])[0])
+			}
+			if(state.filterSystem[1].Phone.checked === 1) {
+				searchFilters.push(Object.keys(state.filterSystem[1])[0])
+			}
+			if(state.filterSystem[2]["Wired Head Phones"].checked === 1) {
+				searchFilters.push(Object.keys(state.filterSystem[2])[0])
+			}
+			if(state.filterSystem[3]["Wireless Head Phones"].checked === 1) {
+				searchFilters.push(Object.keys(state.filterSystem[3])[0])
+			}
+			if(state.filterSystem[4].Speakers.checked === 1) {
+				searchFilters.push(Object.keys(state.filterSystem[4])[0])
+			}
+			if(state.filterSystem[5]["Desktop Computer"].checked === 1) {
+				searchFilters.push(Object.keys(state.filterSystem[5])[0])
+			}
+			if(state.filterSystem[6]["Laptop Computer"].checked === 1) {
+				searchFilters.push(Object.keys(state.filterSystem[6])[0])
+			}
+			if(state.filterSystem[7].Drone.checked === 1) {
+				searchFilters.push(Object.keys(state.filterSystem[7])[0])
+			}
+			if(state.filterSystem[8].Other.checked === 1) {
+				searchFilters.push(Object.keys(state.filterSystem[8])[0])
+			}
+			sortFilterForUsedProducts(searchFilters)
+	})
+}
+
+function sortFilterForUsedProducts(searchParams) {
+	$.ajax({
+		url:'http://localhost:8080/api/products/used',
+		type:'GET',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		success: function(response) {
+			$('.addUsedItem').html('');
+			const items = response.usedproduct.map(item => item.productType);
+			const indexOfSearched = searchParams.map(searched => items.indexOf(searched));
+			const filtered = indexOfSearched.filter(num => num > -1);
+			const itemToDisplay = filtered.map(num => items[num]);
+			if(itemToDisplay.length > 0) {
+				for(let i = 0; i < response.usedproduct.length; i++) {
+					for(let j = 0; j < itemToDisplay.length; j++) {
+						if(response.usedproduct[i].productType === itemToDisplay[j]) {
+							$('.addUsedItem').append(renderUsedProductResults(response.usedproduct[i]))
+						}
+					}
+				}
+			} else {
+				$('.addUsedItem').html(`<h2>Sorry there no products with your selected filters</h2`)
+			}
+		}
+	})
+}
+
+function startNewSearchButton() {
+  $('.startNewSearch').click(function(event) {
+    location.reload();
+  })
+}
+
 
 
 $(function () {
@@ -575,4 +594,6 @@ $(function () {
 	navBar();
 	filterCategories();
 	newSideFilters();
+	usedSideFilters();
+	startNewSearchButton();
 });
