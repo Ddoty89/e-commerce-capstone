@@ -146,7 +146,6 @@ label > input:checked + img{
 .picContainer,
 .usedProductInfo1,
 .usedProductInfo2 {
-	/*border:1px solid black;*/
 	width:420px;
 	margin: auto;
 }
@@ -256,7 +255,6 @@ label > input:checked + img{
 .startNewSearch {
 	width:100px;
 }
-
 
 
 .hidden {
