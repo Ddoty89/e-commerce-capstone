@@ -143,7 +143,7 @@ function logout() {
 		localStorage.removeItem('email');
 		$('.loginPage').removeClass('hidden');
 		$('.registerPage').removeClass('hidden');
-		navBar();
+		location.reload();
 	})
 }
 
