@@ -47,37 +47,7 @@ const state = {
 			Other: {
 				checked: false
 			}
-		},
-		{
-			"1500+": {
-				checked: false
-			}
-		},
-		{
-			"500-1500": {
-				checked: false
-			}
-		},
-		{
-			"200-500": {
-				checked: false
-			}
-		},
-		{
-			"100-200": {
-				checked: false
-			}
-		},
-		{
-			"50-100": {
-				checked: false
-			}
-		},
-		{
-			"Less than 50": {
-				checked: false
-			}
-		},
+		}
 	]
 }
 
@@ -171,6 +141,8 @@ function logout() {
 		localStorage.removeItem('username');
 		localStorage.removeItem('token');
 		localStorage.removeItem('email');
+		$('.loginPage').removeClass('hidden');
+		$('.registerPage').removeClass('hidden');
 	})
 }
 
