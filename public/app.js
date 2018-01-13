@@ -137,7 +137,8 @@ function accessProtectedEndpoint() {
 };
 
 function logout() {
-	$('.logout').on('submit', () => {
+	$('.logout').on('submit', (event) => {
+		event.preventDefault();
 		localStorage.removeItem('username');
 		localStorage.removeItem('token');
 		localStorage.removeItem('email');
