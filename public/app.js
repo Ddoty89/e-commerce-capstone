@@ -343,7 +343,7 @@ function renderUsedProductResults(results) {
 }
 
 function navBar() {
-	if(localStorage.getItem('username').length !== null) {
+	if(localStorage.getItem('username') !== null) {
 		$('.loginPage').addClass('hidden');
 		$('.registerPage').addClass('hidden');
 		$('.currentUser').removeClass('hidden');
@@ -352,73 +352,73 @@ function navBar() {
 }
 
 function filterCategories() {
-	$('.newTv').html(`
+	$('.tv').html(`
 		<input class='newTvCheck' id='tv' type='checkbox' name='select'/>
 		<label id='newTv' for='tv'>${Object.keys(state.filterSystem[0])}</label>`
 	)
-	$('.newTv').change(function() {
+	$('.tv').change(function() {
 		state.filterSystem[0].Television.checked ^= true;
 	})
-	$('.newPhone').html(`
+	$('.phone').html(`
 		<input class='newPhoneCheck' id='phone' type='checkbox' name='select'/>
 		<label id='newPhone' for='phone'>${Object.keys(state.filterSystem[1])}</label>`
 	)
-	$('.newPhone').change(function() {
+	$('.phone').change(function() {
 		state.filterSystem[1].Phone.checked ^= true;
 	})
-	$('.newWHeadPhones').html(`
+	$('.wHeadPhones').html(`
 		<input class='newWHeadPhonesCheck' id='wHeadPhones' type='checkbox' name='select'/>
 		<label id='newWHeadPhones' for='wHeadPhones'>${Object.keys(state.filterSystem[2])}</label>`
 	)
-	$('.newWHeadPhones').change(function() {
+	$('.wHeadPhones').change(function() {
 		state.filterSystem[2]['Wired Head Phones'].checked ^= true;
 	})
-	$('.newWLHeadPhones').html(`
+	$('.wLHeadPhones').html(`
 		<input class='newWLHeadPhonesCheck' id='wLHeadPhones' type='checkbox' name='select'/>
 		<label id='newWLHeadPhones' for='wLHeadPhones'>${Object.keys(state.filterSystem[3])}</label>`
 	)
-	$('.newWLHeadPhones').change(function() {
+	$('.wLHeadPhones').change(function() {
 		state.filterSystem[3]['Wireless Head Phones'].checked ^= true;
 	})
-	$('.newSpeakers').html(`
+	$('.speakers').html(`
 		<input class='newSpeakersCheck' id='speakers' type='checkbox' name='select'/>
 		<label id='newSpeakers' for='speakers'>${Object.keys(state.filterSystem[4])}</label>`
 	)
-	$('.newSpeakers').change(function() {
+	$('.speakers').change(function() {
 		state.filterSystem[4].Speakers.checked ^= true;
 	})
-	$('.newDComputer').html(`
+	$('.dComputer').html(`
 		<input class='newDComputerCheck' id='dComputer' type='checkbox' name='select'/>
 		<label id='newDComputer' for='dComputer'>${Object.keys(state.filterSystem[5])}</label>`
 	)
-	$('.newDComputer').change(function() {
+	$('.dComputer').change(function() {
 		state.filterSystem[5]['Desktop Computer'].checked ^= true;
 	})
-	$('.newLComputer').html(`
+	$('.lComputer').html(`
 		<input class='newLComputerCheck' id='lComputer' type='checkbox' name='select'/>
 		<label id='newLComputer' for='lComputer'>${Object.keys(state.filterSystem[6])}</label>`
 	)
-	$('.newLComputer').change(function() {
+	$('.lComputer').change(function() {
 		state.filterSystem[6]['Laptop Computer'].checked ^= true;
 	})
-	$('.newDrone').html(`
+	$('.drone').html(`
 		<input class='newDroneCheck' id='drone' type='checkbox' name='select'/>
 		<label id='newDrone' for='drone'>${Object.keys(state.filterSystem[7])}</label>`
 	)
-	$('.newDrone').change(function() {
+	$('.drone').change(function() {
 		state.filterSystem[7].Drone.checked ^= true;
 	})
-	$('.newOther').html(`
+	$('.other').html(`
 		<input class='newOtherCheck' id='other' type='checkbox' name='select'/>
 		<label id='newOther' for='other'>${Object.keys(state.filterSystem[8])}</label>`
 	)
-	$('.newOther').change(function() {
+	$('.other').change(function() {
 		state.filterSystem[8].Other.checked ^= true;
 	})
 }
 
 function newSideFilters() {
-	$('.newInitiatefilters').click(function() {
+	$('.newInitiateFilters').click(function() {
 		const searchFilters =[];
 			if(state.filterSystem[0].Television.checked === 1) {
 				searchFilters.push(Object.keys(state.filterSystem[0])[0])
@@ -480,7 +480,7 @@ function sortFilterForNewProducts(searchParams) {
 }
 
 function usedSideFilters() {
-	$('.usedInitiatefilters').click(function() {
+	$('.usedInitiateFilters').click(function() {
 		const searchFilters =[];
 			if(state.filterSystem[0].Television.checked === 1) {
 				searchFilters.push(Object.keys(state.filterSystem[0])[0])

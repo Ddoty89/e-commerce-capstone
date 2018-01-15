@@ -10,15 +10,10 @@ padding-left:175px;
 }
 
 main,
-.newSideFilter {
+.sideFilter {
 	display: inline-block;
 }
-
-main,
-.usedSideFilter {
-	display: inline-block;
-}
-
+ 
 
 /* INDEX.HTML PAGE */
 
@@ -228,8 +223,7 @@ label > input:checked + img{
 
 
 
-.newSideFilter,
-.usedSideFilter {
+.sideFilter {
 	height:100%;
 	position:fixed;
 	background-color:#00aac3;
@@ -238,14 +232,15 @@ label > input:checked + img{
 }
 
 .itemTypeSelector,
-.priceSelector,
-.newInitiatefilters,
+.newInitiateFilters,
+.usedInitiateFilters,
 .startNewSearch {
 	display: block;
 	margin: 15px 5px;
 }
 
-.newInitiatefilters,
+.newInitiateFilters,
+.usedInitiateFilters,
 .startNewSearch {
 	width:50px;
 	margin: 15px 5px;
