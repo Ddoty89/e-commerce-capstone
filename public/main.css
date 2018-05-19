@@ -6,12 +6,13 @@
 
 main {
 max-width: 1000px;
-padding-left:175px;
+padding-left:185px;
 }
 
 main,
 .sideFilter {
 	display: inline-block;
+	margin-top:62px;
 }
  
 
@@ -63,45 +64,61 @@ main,
 img {
 	max-width: 200px;
 	max-height: 150px;
+
+}
+
+.productImage {
+	border:1px solid black;
+	width:200px;
+	height:150px;
 }
 
 /* NAV BAR */
 
-a {
-	display: block;
-	text-decoration: none;
-}
 
 a {
-    color:black ;
+    color:black;
+    text-decoration: none;
 }
 
 a:visited {
-    color:black ;
-}
-
-.header {
-	width: 100%;
-	background-color:#f7f1cf;
-	position:relative;
-}
-
-.nav {
-	list-style-type: none;
-	display: inline-block;
-	color: black;
-	margin-right:25px;
+    color:black;
 }
 
 .navBar {
+	height:62px;
+	width:100vw;
+	line-height: 62px;
+	background-color:#f7f1cf;
+	position:fixed;
+
+}
+
+.home,
+.newItemPage,
+.usedItemPage,
+.userAccount {
 	display:inline-block;
-	margin-top:15px;
-  margin-bottom:15px
+	margin-left:20px;
+	font-size: 22px;
+	text-decoration: none;
+}
+
+.loginPage,
+.registerPage,
+.currentUser {
+	display:inline-block;
+	margin-right:25px;
+	font-size: 22px;
+	text-decoration: none;
+}
+
+.navList,
+.loginRegister {
+	display: inline-block;
 }
 
 .navList {
-  margin-left:20px;
-  margin-right:200px;
 	float:left;
 }
 
@@ -109,15 +126,12 @@ a:visited {
 	float:right;
 }
 
-.logout {
-	margin-left: 50px;
-	width:75px;
-}
 
 /* NAV BAR */
 
 
 /* USER ACCOUNT PICTURES AND POSTING */
+
 
 label > input{
   visibility: hidden;
@@ -194,14 +208,16 @@ label > input:checked + img{
 
 /* REGISTER PAGE */
 
-.registerContainer {
+
+
+.register {
 	width:200px;
 	height:290px;
-	border-radius:5px;
+	/*border-radius:5px;
 	border:1px solid tan;
 	background-color:tan;
 	margin:auto;
-	margin-top:100px;
+	margin-top:100px;*/
 }
 
 #firstName, 
@@ -244,7 +260,7 @@ label > input:checked + img{
 .startNewSearch {
 	width:50px;
 	margin: 15px 5px;
-	border-radius: 3px
+	border-radius: 3px;
 }
 
 .startNewSearch {

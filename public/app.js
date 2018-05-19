@@ -203,11 +203,11 @@ function getNewProductData(data) {
 function renderNewProductResults(results) {
 	return(
 		`<li>
-	    <img class='productImage' src='${results.newImage}'/>
-      <p class='productName'>${results.newName}</p>
-      <p class='productType'>${results.newType}</p>
-      <p class='productPrice'>${results.newPrice}</p>
-      <button class='linkToPurchase'><a href='${results.newURL}' target='blank'>Purchase Item</a></button>
+		<img class='productImage' src='${results.newImage}'/>
+        <p class='productName'>${results.newName}</p>
+        <p class='productType'>${results.newType}</p>
+        <p class='productPrice'>${results.newPrice}</p>
+        <button class='linkToPurchase'><a href='${results.newURL}' target='blank'>Purchase Item</a></button>
     </li>`
    )
 }
