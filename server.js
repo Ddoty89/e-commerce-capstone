@@ -51,7 +51,6 @@ function runServer() {
       }
       server = app
         .listen(PORT, () => {
-          // console.log(`Your app is listening on port ${PORT}`);
           resolve();
         })
         .on('error', err => {

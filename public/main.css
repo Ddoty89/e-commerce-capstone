@@ -6,11 +6,18 @@
 
 main {
 	max-width: 1000px;
+	padding-top:62px;
 }
 
-main,
+.nIMain,
+.uIMain {
+	padding-left:185px;
+}
+
+.nIMain,
+.uIMain,
 .sideFilter {
-	/*display: inline-block;*/
+	display: inline-block;
 }
  
 
@@ -88,8 +95,8 @@ a:visited {
 	width:100vw;
 	line-height: 62px;
 	background-color:#f7f1cf;
-	/*position:fixed;*/
-
+	position:fixed;
+	z-index: 1;
 }
 
 .home,
@@ -145,6 +152,10 @@ label > input:checked + img{
   border:2px solid #f00;
 }
 
+.userAddProduct {
+	padding-top:62px;
+}
+
 .usedImg {
 	width:135px;
 	height:100px;
@@ -181,10 +192,11 @@ label > input:checked + img{
 	display: block;
 	margin:auto;
 	margin-top:25px;
+	border-radius: 3px;
 }
 
 #loginUser {
-	margin-top:40px;
+	/*margin-top:40px;*/
 }
 
 .loginContainer {
@@ -194,15 +206,22 @@ label > input:checked + img{
 	border:1px solid tan;
 	background-color:tan;
 	margin:auto;
-	margin-top:100px;
+	margin-top:90px;
+}
+
+.login {
+	text-align: center;
 }
 
 .loginButton {
 	width:100px;
+	border:1px solid black;
+	background: white;
+	border-radius:white;
 }
 
-/* LOGIN PAGE */
 
+/* LOGIN PAGE */
 
 /* REGISTER PAGE */
 
@@ -211,11 +230,11 @@ label > input:checked + img{
 .register {
 	width:200px;
 	height:290px;
-	/*border-radius:5px;
+	border-radius:5px;
 	border:1px solid tan;
 	background-color:tan;
 	margin:auto;
-	margin-top:100px;*/
+	margin-top:100px;
 }
 
 #firstName, 
@@ -227,10 +246,14 @@ label > input:checked + img{
 	display: block;
 	margin:auto;
 	margin-top:25px;
+	border-radius: 3px;
 }
 
 .registerButton {
 	width:100px;
+	border:1px solid black;
+	background: white;
+	border-radius: 3px;
 }
 
 /*REGISTER PAGE*/
@@ -238,11 +261,12 @@ label > input:checked + img{
 
 
 .sideFilter {
-	height:100%;
+	height:100vh;
 	position:fixed;
 	background-color:#00aac3;
 	width:175px;
 	float:left;
+	padding-top:62px;
 }
 
 .itemTypeSelector,

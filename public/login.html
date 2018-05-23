@@ -9,31 +9,33 @@
 </head>
 <body>
 
-		<div class='navBar'>
+	<div class='navBar'>
 
-			<ul class='navList'>
-				<li class='home'><a href='index.html'>Home</a></li>
-				<li class='newItemPage'><a href='newItem.html'>New Products</a></li>
-				<li class='usedItemPage'><a href='usedItem.html'>Used Products</a></li> 
-				<li class='userAccount'><a href='userAccount.html'>User Account</a></li>
-			</ul>
+		<ul class='navList'>
+			<li class='home'><a href='index.html'>Home</a></li>
+			<li class='newItemPage'><a href='newItem.html'>New Products</a></li>
+			<li class='usedItemPage'><a href='usedItem.html'>Used Products</a></li> 
+			<li class='userAccount'><a href='userAccount.html'>User Account</a></li>
+		</ul>
 
-			<ul class='loginRegister'>
-				<li class='loginPage'><a href='login.html'>Login</a></li>
-				<li class='registerPage'><a href='register.html'>Register</a></li>
-				<li class='currentUser hidden'></li>
-			</ul>
+		<ul class='loginRegister'>
+			<li class='loginPage'><a href='login.html'>Login</a></li>
+			<li class='registerPage'><a href='register.html'>Register</a></li>
+			<li class='currentUser hidden'></li>
+		</ul>
 
-		</div>
-
-	<div class='loginContainer'>
-		<form class='login'>
-			<input id='loginUser' type='text' name='userName' placeholder="username" autocomplete="username" required/>
-			<input id='loginPassword' type='password' name='password' placeholder="password" autocomplete="current-password" required/>
-			<button class='loginButton'>Login</button>
-		</form>
 	</div>
 
+	<main>
+		<div class='loginContainer'>
+			<form class='login'>
+				<input id='loginUser' type='text' name='userName' placeholder="username" autocomplete="username" required/>
+				<input id='loginPassword' type='password' name='password' placeholder="password" autocomplete="current-password" required/>
+				<button class='loginButton'>Login</button>
+			</form>
+		</div>
+	</main>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src='app.js'></script>
 
