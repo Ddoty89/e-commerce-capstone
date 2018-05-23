@@ -53,6 +53,7 @@ main {
 	width: 200px;
 	display: inline-block;
 	margin-right:20px;
+	overflow:auto;
 }
 
 .addUsedItem > li {
@@ -73,7 +74,6 @@ img {
 }
 
 .productImage {
-	border:1px solid black;
 	width:200px;
 	height:150px;
 }
