@@ -1,18 +1,16 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding:0;
+  	box-sizing: border-box;
+  	margin: 0;
+  	padding:0;
 }
 
 main {
-max-width: 1000px;
-padding-left:185px;
+	max-width: 1000px;
 }
 
 main,
 .sideFilter {
-	display: inline-block;
-	margin-top:62px;
+	/*display: inline-block;*/
 }
  
 
@@ -90,7 +88,7 @@ a:visited {
 	width:100vw;
 	line-height: 62px;
 	background-color:#f7f1cf;
-	position:fixed;
+	/*position:fixed;*/
 
 }
 
