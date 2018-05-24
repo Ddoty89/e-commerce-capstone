@@ -109,7 +109,7 @@ function loginUser() {
   			localStorage.setItem('token', authToken);
   			$('#loginUser').val("");
 				$('#loginPassword').val("");
-				window.location.replace('${API_URL_BASE/newItem.html');
+				window.location.replace(`${API_URL_BASE}/newItem.html`);
 				$('.loginPage').addClass('hidden');
 				$('.registerPage').addClass('hidden');
   		},
@@ -125,7 +125,7 @@ function accessProtectedEndpoint() {
 		event.preventDefault();
 		const authToken = localStorage.getItem('token');
 		$.ajax({
-			url:'${API_URL_BASE/api/protected', 
+			url:`${API_URL_BASE}/api/protected`, 
 			type: 'GET',
 			headers: {
     		'Content-Type': 'application/json',
