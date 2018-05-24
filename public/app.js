@@ -1,3 +1,5 @@
+const API_URL_BASE = 'http://mysterious-beyond-62346.herokuapp.com/'
+
 const state = {
 	productType: '',
 	condition: '',
@@ -67,7 +69,7 @@ function registerUser() {
 			lastName
 		}
 		$.ajax({
-			url:'http://localhost:8080/api/users', 
+			url:`${API_URL_BASE}/api/users`, 
 			type: 'POST',
 			data:JSON.stringify(credentials),
 			headers: {
@@ -95,7 +97,7 @@ function loginUser() {
 			password
 		}
 		$.ajax({
-			url:'http://localhost:8080/api/auth/login', 
+			url:`${API_URL_BASE}/api/auth/login`, 
 			type: 'POST',
 			data:JSON.stringify(credentials),
 			headers: {
@@ -107,7 +109,7 @@ function loginUser() {
   			localStorage.setItem('token', authToken);
   			$('#loginUser').val("");
 				$('#loginPassword').val("");
-				window.location.replace('http://localhost:8080/newItem.html');
+				window.location.replace('${API_URL_BASE/newItem.html');
 				$('.loginPage').addClass('hidden');
 				$('.registerPage').addClass('hidden');
   		},
@@ -123,7 +125,7 @@ function accessProtectedEndpoint() {
 		event.preventDefault();
 		const authToken = localStorage.getItem('token');
 		$.ajax({
-			url:'http://localhost:8080/api/protected', 
+			url:'${API_URL_BASE/api/protected', 
 			type: 'GET',
 			headers: {
     		'Content-Type': 'application/json',
@@ -152,18 +154,18 @@ function postNewItem() {
 		event.preventDefault();
 		const newImage = $('#newImage').val();
 		const newName = $('#newName').val();
-    const newType = $('#newType').val();
-    const newPrice = $('#newPrice').val();
-    const newURL = $('#newURL').val();
+   		const newType = $('#newType').val();
+    	const newPrice = $('#newPrice').val();
+    	const newURL = $('#newURL').val();
 		const newProduct = {
 			newImage,
-  	  newName,
-		  newType,
+  	  		newName,
+		    newType,
 			newPrice,
-  		newURL
-  	}
+  			newURL
+  		}
 		$.ajax({
-			url:'http://localhost:8080/api/products/new', 
+			url:`${API_URL_BASE}/api/products/new`, 
 			type: 'POST',
 			data:JSON.stringify(newProduct),
 			headers: {
@@ -184,7 +186,7 @@ function navToNewItemPage() {
 
 function getNewProductApiData(callback) {
 	$.ajax({
-		url:'http://localhost:8080/api/products/new',
+		url:`${API_URL_BASE}/api/products/new`,
 		type:'GET',
 		headers: {
 			'Content-Type': 'application/json'
@@ -235,7 +237,7 @@ function postUsedItem() {
 		  email
   	}
 		$.ajax({
-			url:'http://localhost:8080/api/products/used', 
+			url:`${API_URL_BASE}/api/products/used`, 
 			type: 'POST',
 			data:JSON.stringify(product),
 			headers: {
@@ -279,7 +281,7 @@ function navToUsedItemPage() {
 
 function getUsedProductApiData(callback) {
 	$.ajax({
-		url:'http://localhost:8080/api/products/used',
+		url:`${API_URL_BASE}/api/products/used`,
 		type:'GET',
 		headers: {
 			'Content-Type': 'application/json'
@@ -293,7 +295,7 @@ function getUsedProductApiData(callback) {
 
 function getUserData() {
 	$.ajax({
-		url:'http://localhost:8080/api/users/',
+		url:`${API_URL_BASE}/api/users/`,
 		type:'GET',
 		headers: {
 			'Content-Type': 'application/json'
@@ -330,15 +332,15 @@ function renderUsedProductResults(results) {
 	return(
 		`<li>
 			<img class='usedImg' src='${results.image}'/>
-	    <p class='usedProductUsername'>${results.username}</p>
-      <p class='usedProductName'>${results.itemName}</p>
-      <p class='usedProductType'>${results.productType}</p>
-      <p class='usedProductValue'>${results.productValue}</p>
+	    	<p class='usedProductUsername'>${results.username}</p>
+      		<p class='usedProductName'>${results.itemName}</p>
+      		<p class='usedProductType'>${results.productType}</p>
+      		<p class='usedProductValue'>${results.productValue}</p>
 			<p class='usedProductCondition'>${results.condition}</p>
 			<p class='usedProductDescription'>${results.description}</p>
-      <button class='saveItem'>Save</button>
-      <button class='contactUser'><a href="mailto:${results.email}">Contact User</a></button>
-    </li>`
+      		<button class='saveItem'>Save</button>
+      		<button class='contactUser'><a href="mailto:${results.email}">Contact User</a></button>
+    	</li>`
   )
 }
 
@@ -453,7 +455,7 @@ function newSideFilters() {
 
 function sortFilterForNewProducts(searchParams) {
 	$.ajax({
-		url:'http://localhost:8080/api/products/new',
+		url:`${API_URL_BASE}/api/products/new`,
 		type:'GET',
 		headers: {
 			'Content-Type': 'application/json'
@@ -515,7 +517,7 @@ function usedSideFilters() {
 
 function sortFilterForUsedProducts(searchParams) {
 	$.ajax({
-		url:'http://localhost:8080/api/products/used',
+		url:`${API_URL_BASE}/api/products/used`,
 		type:'GET',
 		headers: {
 			'Content-Type': 'application/json'
@@ -542,21 +544,19 @@ function sortFilterForUsedProducts(searchParams) {
 }
 
 function startNewSearchButton() {
-  $('.startNewSearch').click(function(event) {
-    location.reload();
-  })
+  	$('.startNewSearch').click(function(event) {
+   		location.reload();
+  	})
 }
 
 function changeUrl() {
 	window.onload=function(){
-  	$(function(){
-      if(window.location.protocol==="https:")
-        window.location.protocol="http";
-    });
+  		$(function(){
+    		if(window.location.protocol==="https:")
+        	window.location.protocol="http";
+    	});
  	}
 }
-
-
 
 $(function () {
 	registerUser();
