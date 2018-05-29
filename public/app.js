@@ -174,7 +174,7 @@ function postNewItem() {
   		success: function(response) {
   			console.log(response);
 			}
-  	})	
+  		})	
 	})
 }
 
@@ -228,14 +228,14 @@ function postUsedItem() {
     const email = localStorage.getItem('email');
 		const product = {
 			username,
-  	  itemName,
+  	 		itemName,
 			productType,
-  		productValue,
-		  condition,
-		  description,
-		  image,
-		  email
-  	}
+  			productValue,
+		  	condition,
+		  	description,
+		  	image,
+		 	email
+  		}
 		$.ajax({
 			url:`${API_URL_BASE}/api/products/used`, 
 			type: 'POST',
@@ -243,14 +243,14 @@ function postUsedItem() {
 			headers: {
     		'Content-Type': 'application/json'
   		},
-  		success: function(response) {
+  			success: function(response) {
 				$('#itemName').val("");
 				$('#productValue').val("");
 				$('#description').val("");
-		    $('.productTypeMenu').val("");
-		    $('.conditionMenu').val("");
-     	}
-  	})	
+		    	$('.productTypeMenu').val("");
+		    	$('.conditionMenu').val("");
+     		}
+  		})	
 	})
 }
 
@@ -341,7 +341,7 @@ function renderUsedProductResults(results) {
       		<button class='saveItem'>Save</button>
       		<button class='contactUser'><a href="mailto:${results.email}">Contact User</a></button>
     	</li>`
-  )
+    )
 }
 
 function navBar() {
