@@ -1,4 +1,4 @@
-const API_URL_BASE = 'http://mysterious-beyond-62346.herokuapp.com'
+const API_URL_BASE = 'http://localhost:8080'
 
 const state = {
 	productType: '',
@@ -204,12 +204,12 @@ function getNewProductData(data) {
 
 function renderNewProductResults(results) {
 	return(
-		`<li>
-		<img class='productImage' src='${results.newImage}'/>
-        <p class='productName'>${results.newName}</p>
-        <p class='productType'>${results.newType}</p>
-        <p class='productPrice'>${results.newPrice}</p>
-        <button class='linkToPurchase'><a href='${results.newURL}' target='blank'>Purchase Item</a></button>
+		`<li class='newItem'>
+			<img class='productImage' src='${results.newImage}'/>
+	        <p class='productName'>${results.newName}</p>
+	        <p class='productType'>${results.newType}</p>
+	        <p class='productPrice'>${results.newPrice}</p>
+	        <button class='linkToPurchase'><a href='${results.newURL}' target='blank'>Purchase Item</a></button>
     </li>`
    )
 }
@@ -330,7 +330,7 @@ function userAccountData(data) {
 
 function renderUsedProductResults(results) {
 	return(
-		`<li>
+		`<li class='usedItem'>
 			<img class='usedImg' src='${results.image}'/>
 	    	<p class='usedProductUsername'>${results.username}</p>
       		<p class='usedProductName'>${results.itemName}</p>

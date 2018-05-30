@@ -1,0 +1,106 @@
+@media only screen and (max-width: 775px) {
+	.home,
+	.newItemPage,
+	.usedItemPage,
+	.userAccount,
+	.loginPage,
+	.registerPage,
+	.currentUser,
+	.logout {
+		font-size: 20px;
+	}
+}
+
+@media only screen and (max-width: 725px) {
+	.home,
+	.newItemPage,
+	.usedItemPage,
+	.userAccount {
+		font-size: 18px;
+		margin-left:15px;
+	}
+
+	.loginPage,
+	.registerPage,
+	.currentUser,
+	.logout {
+		font-size: 18px;
+		margin-right:15px;
+	}
+}
+
+@media only screen and (max-width: 660px) {
+	.home,
+	.newItemPage,
+	.usedItemPage,
+	.userAccount {
+		font-size: 16px;
+		margin-left:10px;
+	}
+
+	.loginPage,
+	.registerPage,
+	.currentUser,
+	.logout {
+		font-size: 16px;
+		margin-right:10px;
+	}
+
+	.sideFilter {
+		width:150px;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	.home,
+	.newItemPage,
+	.usedItemPage,
+	.userAccount {
+		font-size: 14px;
+		margin-left:5px;
+	}
+
+	.loginPage,
+	.registerPage,
+	.currentUser,
+	.logout {
+		font-size: 14px;
+		margin-right:5px;
+	}
+
+	.logout {
+		width:50px;
+	}
+
+	.sideFilter {
+		width:125px;
+	}
+}
+
+@media only screen and (max-width: 465px) {
+	.newItemPage,
+	.usedItemPage,
+	.userAccount {
+		margin-left:0px;
+		border-left: 3px solid black;
+	}
+
+	.loginPage,
+	.registerPage,
+	.currentUser,
+	.logout {
+		margin-right:0px;
+	}
+
+	.logout {
+		width:60px;
+	}
+
+	section {
+		margin-bottom:5px;
+	}
+
+	.sideFilter {
+		width:115px;
+	}
+}

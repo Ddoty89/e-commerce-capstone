@@ -56,11 +56,19 @@ main {
 	overflow:auto;
 }
 
+.nIMain{
+	text-align: center;
+}
+
 .addUsedItem > li {
 	height: 300px;
 	width: 200px;
 	display: inline-block;
 	margin-right:20px;
+}
+
+.addUsedItem {
+	text-align: center;
 }
 
 /* APP.JS GET REQUESTS FOR PRODUCTS */
@@ -113,9 +121,18 @@ a:visited {
 .registerPage,
 .currentUser {
 	display:inline-block;
-	margin-right:25px;
-	font-size: 22px;
+	margin-right:20px;
+	font-size:22px;
 	text-decoration: none;
+}
+
+.logout {
+	width:80px;
+	height:25px;
+	border:1px solid black;
+	font-size:18px;
+	border-radius:5px;
+	margin-right:20px;
 }
 
 .navList,
@@ -161,6 +178,15 @@ label > input:checked + img{
 	height:100px;
 }
 
+.userUsedItem {
+	text-align: center;
+}
+
+.usedItem {
+	display:inline-block;
+	margin:25px;
+}
+
 .picContainer,
 .usedProductInfo1,
 .usedProductInfo2 {
@@ -193,10 +219,6 @@ label > input:checked + img{
 	margin:auto;
 	margin-top:25px;
 	border-radius: 3px;
-}
-
-#loginUser {
-	/*margin-top:40px;*/
 }
 
 .loginContainer {
