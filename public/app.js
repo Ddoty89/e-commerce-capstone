@@ -1,4 +1,4 @@
-const API_URL_BASE = 'http://localhost:8080'
+const API_URL_BASE = 'http://mysterious-beyond-62346.herokuapp.com/'
 
 const state = {
 	productType: '',
